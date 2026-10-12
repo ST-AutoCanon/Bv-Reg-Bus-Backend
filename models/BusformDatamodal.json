@@ -1,0 +1,12 @@
+{
+  "formTypes": [
+    "manufacturerDetails",
+    "manufacturerPlantDetails",
+    "vehicleBasicDetails",
+    "weighmentDetails",
+    "tyreAndWheelRim",
+    "documents",
+    "notification",
+    "setting"
+  ]
+}

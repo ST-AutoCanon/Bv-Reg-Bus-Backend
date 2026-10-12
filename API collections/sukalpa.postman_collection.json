@@ -1,0 +1,691 @@
+{
+	"info": {
+		"_postman_id": "b0040913-69e9-4b0e-9487-4aa3897328b9",
+		"name": "sukalpa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14673271"
+	},
+	"item": [
+		{
+			"name": "form APIs",
+			"item": [
+				{
+					"name": "update form sections of a requestID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"Manufacturer_Details\": {\n            \"properties\": {\n                \"Basic_model\": {\n                    \"value\": \"fgjdfkghdkjf\",\n                    \"label\": \"Basic model\"\n                },\n                \"variant\": {\n                    \"value\": \"gfgdfdfd\",\n                    \"label\": \"variant(s)\"\n                },\n                \"Manufacturer_name_and_address\": {\n                    \"value\": \"yityiruytr\",\n                    \"label\": \"Manufacturer’s name and address\"\n                }\n            },\n            \"label\": \"Manufacturer Details\"\n        },\n        \"supplier\": \"63fdec9613abfc1ec8d4bf65\",\n        \"_id\": \"63fdecbf13abfc1ec8d4bf73\"\n    },\n    \"formType\": \"11\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/forms/63fdeca013abfc1ec8d4bf67",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forms",
+								"63fdeca013abfc1ec8d4bf67"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get forms data for component sent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"supplierId\": \"63fded0013abfc1ec8d4bf7c\",\n    \"component\": \"Vehicle General Information\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/forms/createFormsForSupplier/63fdeca013abfc1ec8d4bf67",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forms",
+								"createFormsForSupplier",
+								"63fdeca013abfc1ec8d4bf67"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get All Forms for a requestID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"supplierId\": \"63f509831d95202acd3de705\",\n    \"requestId\": \"63f4fd21aa15a331733d91ce\",\n    \"component\": \"Tyres\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/forms/63f4fd21aa15a331733d91ce",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forms",
+								"63f4fd21aa15a331733d91ce"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User action APIs",
+			"item": [
+				{
+					"name": "signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"var data = JSON.parse(responseBody);",
+									"if(data.accessToken){",
+									"    pm.environment.set(\"token\", data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user4\",\n    \"password\": \"password4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/signup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"var data = JSON.parse(responseBody);",
+									"if(data.accessToken){",
+									"    pm.environment.set(\"token\", data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user3\",\n    \"password\": \"password3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/signin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inactive user reset password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"var data = JSON.parse(responseBody);",
+									"if(data.accessToken){",
+									"    pm.environment.set(\"token\", data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"63fc49d5ee5ab7ddf4332042\",\n    \"username\": \"amoghvk7@gmail.com\",\n    \"password\": \"Welcome@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/resetPassword",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new User Registration Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"var data = JSON.parse(responseBody);",
+									"if(data.accessToken){",
+									"    pm.environment.set(\"token\", data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"mukunda\",\n    \"lastName\": \"k\",\n    \"emailId\": \"mukunda37@yahoo.com\",\n    \"typeOfBusiness\": \"lol\",\n    \"businessName\": \"lol\",\n    \"registrationDate\": \"1677224587882\",\n    \"registrationNumber\": \"123\",\n    \"businessDescription\": \"fjkgdljkdfj\",\n    \"profileAddress\": {\n        \"address1\": \"fiugfoidug 2312 fdsfs\",\n        \"address2\": \"yioyurt\",\n        \"country\": \"India\",\n        \"state\": \"Karnataka\",\n        \"city\": \"nancaca\",\n        \"zipCode\": \"674864\",\n        \"contact\": \"869478947654\",\n        \"alternateContact\": \"674346745\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/userRegistration/newUserRegistration",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"userRegistration",
+								"newUserRegistration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin: search User Registration Requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"var data = JSON.parse(responseBody);",
+									"if(data.accessToken){",
+									"    pm.environment.set(\"token\", data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"startDate\": \"24 Feb 2023\",\n    \"endDate\": \"27 Feb 2023\",\n    \"status\": \"incomplete\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/userRegistration/searchUserRegistrations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"userRegistration",
+								"searchUserRegistrations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin: approve/reject profile request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"var data = JSON.parse(responseBody);",
+									"if(data.accessToken){",
+									"    pm.environment.set(\"token\", data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/userRegistration/processUserRegistration/63f8712083ebb1e7fb521c14/approved",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"userRegistration",
+								"processUserRegistration",
+								"63f8712083ebb1e7fb521c14",
+								"approved"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "homologation request APIs",
+			"item": [
+				{
+					"name": "get homologationRequest template",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"Tyre_Description\": {\n            \"properties\": {\n                \"Laden\": {\n                    \"value\": \"caca\",\n                    \"label\": \"Laden\"\n                },\n                \"Tyre_size_designation_including_ply_rating\": {\n                    \"value\": \"gaga\",\n                    \"label\": \"Tyre size designation including ply rating\"\n                },\n                \"Speed_index\": {\n                    \"value\": \"haha\",\n                    \"label\": \"Speed index\"\n                },\n                \"Load_index_Load_rating\": {\n                    \"value\": \"\",\n                    \"label\": \"Load index / Load rating\"\n                },\n                \"Tyre_Type\": {\n                    \"value\": \"\",\n                    \"label\": \"Tyre Type\"\n                }\n            },\n            \"label\": \"Tyre Decsription\"\n        },\n        \"supplier\": \"63f509831d95202acd3de705\",\n        \"_id\": \"63f519842d509f4c99e42516\"\n    },\n    \"formType\": \"7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/homologationRequest/template",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"homologationRequest",
+								"template"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new homologationRequest item for user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vehicle_type\": \"2-Wheeler\",\n    \"fuel_type\": \"haha\",\n    \"certification_type\": \"haha\",\n    \"vehicle_max_speed\": \"haha\",\n    \"motor_nominal_power\": \"haha\",\n    \"motor_peak_power\": \"haha\",\n    \"vehicle_length\": \"haha\",\n    \"vehicle_width\": \"haha\",\n    \"vehicle_height\": \"haha\",\n    \"vehicle_unloded_weight\": \"haha\",\n    \"vehicle_category\": \"haha\",\n    \"prefered_testing_agency\": \"haha\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/homologationRequest/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"homologationRequest",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin: get all homolocation requests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registrationDate\": \"22 Feb 2023\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/homologationRequest/searchHomologationRequests/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"homologationRequest",
+								"searchHomologationRequests",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all homologationRequest items for user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"Tyre_Description\": {\n            \"properties\": {\n                \"Laden\": {\n                    \"value\": \"caca\",\n                    \"label\": \"Laden\"\n                },\n                \"Tyre_size_designation_including_ply_rating\": {\n                    \"value\": \"gaga\",\n                    \"label\": \"Tyre size designation including ply rating\"\n                },\n                \"Speed_index\": {\n                    \"value\": \"haha\",\n                    \"label\": \"Speed index\"\n                },\n                \"Load_index_Load_rating\": {\n                    \"value\": \"\",\n                    \"label\": \"Load index / Load rating\"\n                },\n                \"Tyre_Type\": {\n                    \"value\": \"\",\n                    \"label\": \"Tyre Type\"\n                }\n            },\n            \"label\": \"Tyre Decsription\"\n        },\n        \"supplier\": \"63f509831d95202acd3de705\",\n        \"_id\": \"63f519842d509f4c99e42516\"\n    },\n    \"formType\": \"7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/homologationRequest/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"homologationRequest",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "supplier API",
+			"item": [
+				{
+					"name": "create a new supplier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": true,\n    \"nameOfSupplier\": \"TVS\",\n    \"copCertificationNumber\": \"213213123\",\n    \"copCertificationValidityDate\": \"24 Feb 2023\",\n    \"licenceType\": \"type 1\",\n    \"licenceNumber\": \"5645654\",\n    \"licenceValidityDate\": \"01 Feb 2023\",\n    \"applicationReferenceNumber\": \"\",\n    \"submissionDate\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/supplier/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"supplier",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "switch supplier status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": false,\n    \"supplierId\": \"63fded0013abfc1ec8d4bf7c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/supplier/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"supplier",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "model APIs",
+			"item": [
+				{
+					"name": "get all components for the request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vehicle_type\": \"2-Wheeler\",\n    \"fuel_type\": \"Electric\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/getModelData/homologationRequestComponents",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"getModelData",
+								"homologationRequestComponents"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

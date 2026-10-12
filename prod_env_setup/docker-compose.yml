@@ -1,0 +1,54 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - node-app
+      - react-app
+
+  node-app:
+    image: registry.digitalocean.com/auto-canon/be-node-app:latest
+    container_name: node-app
+    ports:
+      - "3001:3001"
+    restart: on-failure
+    volumes:
+      - /home/auto-canon-be/uploads:/app/uploads
+    environment:
+      PORT : 3001
+      MONGO_IP : mongo_db
+      MONGO_USER : mongo
+      MONGO_PWD : mongo
+      MONGO_PORT : 27017
+      ACCESS_TOKEN_SECRET : 41f0d950a8446b745b919bec8d3fe68e51a5e3c1ad2a7fe5c1dc2a0af12d09f08de7b5877f5d90c880a03dbdf479a719bb7ca58ec58d62cd392fa48c5088c23e
+      ADMIN_SIGNUP_TOKEN_SECRET: 37c2d99757b540ed55748fcf49d9924746bd
+      SENDGRID_API_KEY : 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
+      NEW_SIGNIN_URL : http://bv-reg.com/NewSignin
+      RESET_PASSWORD : http://bv-reg.com/ResetPassword
+      
+    depends_on:
+      - mongo-db
+    command: npm run start
+
+  react-app:
+    image: registry.digitalocean.com/auto-canon/auto-canon-fe:latest
+    container_name: react-app
+    ports:
+    - "3000:3000"
+    environment:
+      NODE_ENV: production
+      REACT_APP_BASE_URL: http://bv-reg.com/api
+
+  mongo-db:
+    image: mongo:5
+    environment:
+      MONGO_INITDB_ROOT_USERNAME : mongo
+      MONGO_INITDB_ROOT_PASSWORD : mongo
+    volumes:
+      - /home/auto-canon-be/mongo-data:/data/db

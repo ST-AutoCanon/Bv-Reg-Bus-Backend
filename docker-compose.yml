@@ -1,0 +1,42 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - node-app
+
+  node-app:
+    build: .
+    image: registry.digitalocean.com/auto-canon/be-node-app:latest
+    container_name: node-app
+    ports:
+      - "3001:3001"
+    restart: on-failure
+    volumes:
+      - /home/amogh/uploads:/app/uploads
+    environment:
+      PORT : 3001
+      MONGO_IP : mongo_db
+      MONGO_USER : mongo
+      MONGO_PWD : mongo
+      MONGO_PORT : 27017
+      ACCESS_TOKEN_SECRET : f6e2666e74fa513206a88087df2cf81ea0e811df041cca2eac2bb6a05a4e69cef5ea7581f96a62eb635cc86db34e3d4dd14514dade95859aad3d88ba13ee1a48
+      ADMIN_SIGNUP_TOKEN_SECRET: e7db3d59f3df457f2d08d9e4a067ddbb5d3610aab15a5e88f4adfbcab024d9620d4bfb129f2efa5ad298debdc4e37414111dee4f774a55c272801d5c2ab649f9
+      SENDGRID_API_KEY : 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
+      NEW_SIGNIN_URL : https://bv-reg.com/NewSignin
+      RESET_PASSWORD : https://bv-reg.com/ResetPassword
+    depends_on:
+      - mongo-db
+    command: npm run start
+  
+  mongo-db:
+    image: mongo:5
+    environment:
+      MONGO_INITDB_ROOT_USERNAME : mongo
+      MONGO_INITDB_ROOT_PASSWORD : mongo
+    volumes:
+      - /home/amogh/mongo-data:/data/db

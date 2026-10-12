@@ -1,0 +1,16 @@
+Mongo schemas:
+
+User flow:
+
+	1) "User Restration Schema" : for storing all registrations details with pending/approved/rejected states.
+	2) "Profile Schema" : for storing all registered and approved users data.
+
+Homologation Registration Request flow:
+
+	1) "Homologation Request Schema" : for creating a new homologation request. --Done
+	2) "Supplier Schema" : will be same for all forms and components.
+	3) "Homologation Request Components Schema" : 
+		for getting all the components array(tyre, rim, horn, etc) based on 4 reqest properties: "vehical type", "fuel". --Done
+	4) "Components to Forms Schema" : to identify which forms to consider based on the selected component(tyre, rim, horn, etc).
+	
+

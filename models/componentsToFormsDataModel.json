@@ -1,0 +1,376 @@
+[
+  { "component": "Tyres", "vehicle_type": "3-Wheeler", "forms": ["1A", "7", "8"] },
+  { "component": "Tyres", "vehicle_type": "2-Wheeler", "forms": ["1A", "7", "8"] },
+  {
+    "component": "Wheel Rim",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "7", "8"]
+  },
+  {
+    "component": "Wheel Rim",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "7", "8"]
+  },
+  { "component": "Horn", "vehicle_type": "3-Wheeler", "forms": ["1A", "8"] },
+  { "component": "Horn", "vehicle_type": "2-Wheeler", "forms": ["1A", "8"] },
+  {
+    "component": "Traction Battery Pack",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["13", "7", "8"]
+  },
+  {
+    "component": "Traction Battery Pack",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["13", "7", "8"]
+  },
+  {
+    "component": "Battery Mangement System",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["13"]
+  },
+  {
+    "component": "Battery Mangement System",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["13"]
+  },
+  { "component": "Head Lamp", "vehicle_type": "3-Wheeler", "forms": ["1A", "8"] },
+  { "component": "Head Lamp", "vehicle_type": "2-Wheeler", "forms": ["1A", "8"] },
+  {
+    "component": "Daytime Running Lamp",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Daytime Running Lamp",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Position Lamps",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Position Lamps",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Rear Registration Plate / Number Plate lamp",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Rear Registration Plate / Number Plate lamp",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Direction Indicator Lamp",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Direction Indicator Lamp",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Hazard Warning Lamp",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Hazard Warning Lamp",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Retro Reflectors",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Retro Reflectors",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Hydraulic Brake Hose",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Hydraulic Brake Hose",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  { "component": "Brake Fluid", "vehicle_type": "3-Wheeler", "forms": ["1A", "8"] },
+  { "component": "Brake Fluid", "vehicle_type": "2-Wheeler", "forms": ["1A", "8"] },
+  {
+    "component": "Spray Suppression",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["8"]
+  },
+  { "component": "Handle Lock", "vehicle_type": "2-Wheeler", "forms": ["8"] },
+  {
+    "component": "Rear View Mirror",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Rear View Mirror",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Reversing Lamp",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "8"]
+  },
+  {
+    "component": "Reversing Lamp",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["8"]
+  },
+  { "component": "Wind screen", "vehicle_type": "3-Wheeler", "forms": ["8"] },
+  { "component": "Side glass", "vehicle_type": "3-Wheeler", "forms": ["8"] },
+  { "component": "Rear glass", "vehicle_type": "3-Wheeler", "forms": ["8"] },
+  {
+    "component": "Windscreen wiping",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["7", "8"]
+  },
+  {
+    "component": "Vehicle General Information",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["7", "11", "13", "1A"]
+  },
+  {
+    "component": "Vehicle General Information",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["7", "11", "13", "1A"]
+  },
+  {
+    "component": "Vehicle Dimensions",
+    "vehicle_type": "3-Wheeler",
+    "forms": [ "7"]
+  },
+  {
+    "component": "Vehicle Dimensions",
+    "vehicle_type": "2-Wheeler",
+    "forms": [ "7"]
+  },
+  {
+    "component": "Vehicle Identification Number",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "11"]
+  },
+  {
+    "component": "Vehicle Identification Number",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "11"]
+  },
+  { "component": "Suspension", "vehicle_type": "2-Wheeler", "forms": ["1A", "7"] },
+  { "component": "Suspension", "vehicle_type": "3-Wheeler", "forms": ["1A", "7"] },
+  { "component": "Weights", "vehicle_type": "3-Wheeler", "forms": ["1A", "7"] },
+  { "component": "Weights", "vehicle_type": "2-Wheeler", "forms": ["1A", "7"] },
+
+  { "component": "Brakes", "vehicle_type": "3-Wheeler", "forms": ["1A", "7"] },
+  { "component": "Brakes", "vehicle_type": "2-Wheeler", "forms": ["1A", "7"] },
+  {
+    "component": "Cooling System",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["13"]
+  },
+  {
+    "component": "Cooling System",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["13"]
+  },
+  {
+    "component": "General arrangement of the vehicle",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "7", "13"]
+  },
+  {
+    "component": "General arrangement of the vehicle",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "7", "13"]
+  },
+  { "component": "Grab handle", "vehicle_type": "3-Wheeler", "forms": ["1A"] },
+  { "component": "Two Wheeler Aggregates", "vehicle_type": "2-Wheeler", "forms": ["1A", "8"] },
+  {
+    "component": "Steering + Suspension + Handle Lock / Anti Theft Device",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "7"]
+  },
+  {
+    "component": "Handle Lock / Anti Theft Device",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A"]
+  },
+  { "component": "Indicators", "vehicle_type": "3-Wheeler", "forms": ["1A"] },
+  { "component": "Indicators", "vehicle_type": "2-Wheeler", "forms": ["1A"] },
+  { "component": "Vehicle Control Unit", "vehicle_type": "3-Wheeler", "forms": ["1A","13"] },
+  { "component": "Vehicle Control Unit", "vehicle_type": "2-Wheeler", "forms": ["1A","13"] },
+  {
+    "component": "Pillion Foot rest",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Spray Suppression / Rear Mud Gaurd",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A"]
+  },
+  { "component": "Tell Tales", "vehicle_type": "3-Wheeler", "forms": ["1A"] },
+  { "component": "Tell Tales", "vehicle_type": "2-Wheeler", "forms": ["1A"] },
+
+  { "component": "Drive Train System", "vehicle_type": "3-Wheeler", "forms": ["13", "1A" ,"7"] },
+  { "component": "Drive Train System", "vehicle_type": "2-Wheeler", "forms": ["13", "1A" ,"7"] },
+  {
+    "component": "Two Wheeler External Projection",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Two Wheeler Stands",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Vehicle Controls and Their Location",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Vehicle Controls and Their Location",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Instrument Cluster",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A", "13"]
+  },
+  {
+    "component": "Instrument Cluster",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A", "13"]
+  },
+  {
+    "component": "Critical Electrical Devices",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Critical Electrical Devices",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "DC-DC Converter",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "DC-DC Converter",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "Insulating Category",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "Insulating Category",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "Charger Specification",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "Charger Specification",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "Electrical Safety Device",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "Electrical Safety Device",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "Vehicle Electrical Specification",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["13", "7"]
+  },
+  {
+    "component": "Vehicle Electrical Specification",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["13", "7"]
+  },
+  { "component": "Controller", "vehicle_type": "3-Wheeler", "forms": ["13", "7"] },
+  { "component": "Controller", "vehicle_type": "2-Wheeler", "forms": ["13", "7"] },
+  {
+    "component": "Fire Fighting System",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  { "component": "Lubrication", "vehicle_type": "3-Wheeler", "forms": ["13"] },
+  { "component": "Lubrication", "vehicle_type": "2-Wheeler", "forms": ["13"] },
+  {
+    "component": "Vehicle Performance",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["7", "1A","13"]
+  },
+  {
+    "component": "Vehicle Performance",
+    "vehicle_type": "2-Wheeler",
+    "forms": ["7", "1A" ,"13"]
+  },
+  {
+    "component": "Dimension",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Payload",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Windscreen and Wiping System",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Seating Arrangement",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Seating Dimension",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "H Point",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  },
+  {
+    "component": "Rear Entry Provision",
+    "vehicle_type": "3-Wheeler",
+    "forms": ["1A"]
+  }
+]

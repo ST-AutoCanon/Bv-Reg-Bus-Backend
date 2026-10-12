@@ -1,0 +1,243 @@
+[
+  {
+    "components": [
+      "Rear Registration Plate / Number Plate lamp",
+      "Direction Indicator Lamp",
+      "Hazard Warning Lamp",
+      "Retro Reflectors",
+      "Head Lamp",
+      "Daytime Running Lamp",
+      "Position Lamps",
+      "Reversing Lamp"
+    ],
+    "fuel_type": "Electric",
+    "page": "safety-component-1",
+    "vehicle_type": "2-Wheeler"
+  },
+  {
+    "components": [
+      "Rear Registration Plate / Number Plate lamp",
+      "Direction Indicator Lamp",
+      "Hazard Warning Lamp",
+      "Retro Reflectors",
+      "Head Lamp",
+      "Daytime Running Lamp",
+      "Position Lamps",
+      "Reversing Lamp"
+    ],
+    "fuel_type": "Electric",
+    "page": "safety-component-1",
+    "vehicle_type": "3-Wheeler"
+  },
+  {
+  "fuel_type": "Electric",
+  "page": "Manufacturer Details",
+  "vehicle_type": "Bus"
+},
+  {
+    "components": [
+      "Tyres",
+      "Wheel Rim",
+      "Horn",
+      "Hydraulic Brake Hose",
+      "Brake Fluid",
+      "Spray Suppression",
+      "Handle Lock",
+      "Rear View Mirror"
+    ],
+    "fuel_type": "Electric",
+    "page": "safety-component-2",
+    "vehicle_type": "2-Wheeler"
+  },
+  {
+    "components": [
+      "Tyres",
+      "Wheel Rim",
+      "Horn",
+      "Hydraulic Brake Hose",
+      "Brake Fluid",
+      "Rear View Mirror"
+    ],
+    "fuel_type": "Electric",
+    "page": "safety-component-2",
+    "vehicle_type": "3-Wheeler"
+  },
+  {
+    "components": [
+      "Wind screen",
+      "Side glass",
+      "Rear glass",
+      "Windscreen wiping"
+    ],
+    "fuel_type": "Electric",
+    "page": "safety-component-3",
+    "vehicle_type": "3-Wheeler"
+  },
+  {
+
+    "fuel_type": "Electric",
+    "page": "Manufacturer Plant Details",
+    "vehicle_type": "Bus"
+  },
+  {
+    "components": [
+      "Vehicle General Information",
+      "General arrangement of the vehicle",
+      "Vehicle Dimensions",
+      "Weights",
+      "Suspension",
+      "Brakes",
+      "Vehicle Controls and Their Location",
+      "Tell Tales",
+      "Indicators",
+      "Vehicle Identification Number",
+      "Handle Lock / Anti Theft Device",
+      "Two Wheeler Aggregates",
+      "Two Wheeler External Projection",
+      "Drive Train system",
+      "Cooling System"
+    ],
+    "fuel_type": "Electric",
+    "page": "vehicle-ok",
+    "vehicle_type": "2-Wheeler"
+  },
+  {
+    "components": [
+      "Vehicle General Information",
+      "General arrangement of the vehicle",
+      "Vehicle Dimensions",
+      "Weights",
+      "Brakes",
+      "Vehicle Controls and Their Location",
+      "Tell Tales",
+      "Indicators",
+      "Vehicle Identification Number",
+      "Steering + Suspension + Handle Lock / Anti Theft Device",
+      "Grab handle",
+      "Drive Train System",
+      "Cooling System"
+    ],
+    "fuel_type": "Electric",
+    "page": "vehicle-ok",
+    "vehicle_type": "3-Wheeler"
+  },
+  {
+    "components": [
+      "Instrument Cluster",
+      "Critical Electrical Devices",
+      "DC-DC Converter",
+      "Traction Battery Pack",
+      "Battery Mangement System",
+      "Insulating Category",
+      "Charger Specification",
+      "Electrical Safety Device",
+      "Vehicle Electrical Specification",
+      "Controller"
+    ],
+    "fuel_type": "Electric",
+    "page": "electrical-ok",
+    "vehicle_type": "2-Wheeler"
+  },
+  {
+    "components": [
+      "Instrument Cluster",
+      "Critical Electrical Devices",
+      "DC-DC Converter",
+      "Traction Battery Pack",
+      "Battery Mangement System",
+      "Insulating Category",
+      "Charger Specification",
+      "Electrical Safety Device",
+      "Vehicle Electrical Specification",
+      "Controller"
+    ],
+    "fuel_type": "Electric",
+    "page": "electrical-ok",
+    "vehicle_type": "3-Wheeler"
+  },
+  {
+
+    "fuel_type": "Electric",
+    "page": "Vehicle Basic Details",
+    "vehicle_type": "Bus"
+  },
+  
+  {
+    "components": ["Lubrication", "Vehicle Performance", "Code for Month and Year of production","Vehicle Control Unit"],
+    "fuel_type": "Electric",
+    "page": "miscellaneous",
+    "vehicle_type": "2-Wheeler"
+  },
+  {
+    "components": [
+      "Fire Fighting System",
+      "Lubrication",
+      "Vehicle Performance",
+      "Code for Month and Year of production",
+      "Vehicle Control Unit"
+    ],
+    "fuel_type": "Electric",
+    "page": "miscellaneous",
+    "vehicle_type": "3-Wheeler"
+  },
+  {
+    "components": [
+      "Dimension",
+      "Payload",
+      "Windscreen and Wiping System",
+      "Seating Arrangement",
+      "Seating Dimension",
+      "H Point",
+      "Rear Entry Provision"
+    ],
+    "fuel_type": "Electric",
+    "page": "l5-ok",
+    "vehicle_type": "3-Wheeler"
+  },
+
+  {
+    "components": [
+      "File Uploads"
+    ],
+    "fuel_type": "Electric",
+    "page": "File Uploads",
+    "vehicle_type": "3-Wheeler"
+  },
+  {
+    
+    "fuel_type": "Electric",
+    "page": "Weighment Details",
+    "vehicle_type": "Bus"
+  },
+  {
+    "components": [
+      "File Uploads"
+    ],
+    "fuel_type": "Electric",
+    "page": "File Uploads",
+    "vehicle_type": "2-Wheeler"
+  },
+  {
+    
+    "fuel_type": "Electric",
+    "page": "Tyre and wheel rim",
+    "vehicle_type": "Bus"
+  },
+  {
+    
+    "fuel_type": "Electric",
+    "page": "Documents",
+    "vehicle_type": "Bus"
+  },
+  {
+    
+    "fuel_type": "Electric",
+    "page": "Notification",
+    "vehicle_type": "Bus"
+  },
+  {
+    "fuel_type": "Electric",
+    "page": "setting",
+    "vehicle_type": "Bus"
+  }
+]
