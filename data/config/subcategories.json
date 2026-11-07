@@ -1,0 +1,42 @@
+[
+  {
+    "id": "md-1",
+    "categoryId": "manufacturer-details",
+    "name": "MD-1",
+    "code": "MD-1",
+    "displayOrder": 1,
+    "isActive": true
+  },
+  {
+    "id": "mpd-1",
+    "categoryId": "manufacturer-plant-details",
+    "name": "MPD",
+    "code": "MPD",
+    "displayOrder": 2,
+    "isActive": true
+  },
+  {
+    "id": "vbd-1",
+    "categoryId": "vehicle-basic-details",
+    "name": "VBD-1",
+    "code": "VBD-1",
+    "displayOrder": 3,
+    "isActive": true
+  },
+  {
+    "id": "wd-1",
+    "categoryId": "weighment-details",
+    "name": "WD-1",
+    "code": "WD-1",
+    "displayOrder": 4,
+    "isActive": true
+  },
+  {
+    "id": "tyre",
+    "categoryId": "tyres-wheel-rim",
+    "name": "Tyre",
+    "code": "TYRE",
+    "displayOrder": 5,
+    "isActive": true
+  }
+]

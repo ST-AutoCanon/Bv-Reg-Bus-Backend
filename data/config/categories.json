@@ -1,0 +1,37 @@
+[
+  {
+    "id": "manufacturer-details",
+    "name": "Manufacturer Details",
+    "code": "MANUFACTURER_DETAILS",
+    "displayOrder": 1,
+    "isActive": true
+  },
+  {
+    "id": "manufacturer-plant-details",
+    "name": "Manufacturer Plant Details",
+    "code": "MANUFACTURER_PLANT_DETAILS",
+    "displayOrder": 2,
+    "isActive": true
+  },
+  {
+    "id": "vehicle-basic-details",
+    "name": "Vehicle Basic Details",
+    "code": "VEHICLE_BASIC_DETAILS",
+    "displayOrder": 3,
+    "isActive": true
+  },
+  {
+    "id": "weighment-details",
+    "name": "Weighment Details",
+    "code": "WEIGHMENT_DETAILS",
+    "displayOrder": 4,
+    "isActive": true
+  },
+  {
+    "id": "tyres-wheel-rim",
+    "name": "Tyres and Wheel Rim",
+    "code": "TYRES_WHEEL_RIM",
+    "displayOrder": 5,
+    "isActive": true
+  }
+]

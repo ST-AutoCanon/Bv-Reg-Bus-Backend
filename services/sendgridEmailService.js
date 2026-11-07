@@ -71,7 +71,7 @@ const RESET_PASSWORD = process.env.RESET_PASSWORD;
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT),
-  secure: false, // use fals port 587
+  secure: false, //use false port 587
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASSWORD,
