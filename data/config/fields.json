@@ -1,0 +1,2498 @@
+[
+  {
+    "id": "manufacturer-name-address",
+    "subCategoryId": "md-1",
+    "name": "nameaddressmanufacture",
+    "label": "Name & address of the manufacturer",
+    "clauseNumber": "A1.1,1,1.1",
+    "type": "textarea",
+    "placeholder": "Enter manufacturer name and address",
+    "isRequired": true,
+    "displayOrder": 1,
+    "options": [],
+    "validation": {
+      "minLength": 3,
+      "maxLength": 500
+    },
+    "tables": [
+      "T2-2",
+      "T7C-1",
+      "T11-1",
+      "T22-02"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "telephoneno",
+    "subCategoryId": "md-1",
+    "name": "telephoneno",
+    "label": "Telephone No",
+    "clauseNumber": "A1.2,1.2",
+    "type": "text",
+    "placeholder": "Enter Telephone No",
+    "isRequired": true,
+    "displayOrder": 2,
+    "options": [],
+    "validation": {
+      "minLength": 5,
+      "maxLength": 10
+    },
+    "tables": [
+      "T2-3",
+      "T22-03"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "faxno",
+    "subCategoryId": "md-1",
+    "name": "faxno",
+    "label": "Fax No",
+    "clauseNumber": "1.3",
+    "type": "text",
+    "placeholder": "Enter Fax No",
+    "isRequired": true,
+    "displayOrder": 3,
+    "options": [],
+    "validation": {
+      "minLength": 3,
+      "maxLength": 50
+    },
+    "tables": [
+      "T22-04"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "email-address",
+    "subCategoryId": "md-1",
+    "name": "emailAddress",
+    "label": "Email",
+    "clauseNumber": "A1.3,1.4",
+    "type": "email",
+    "placeholder": "Enter Email",
+    "isRequired": true,
+    "displayOrder": 4,
+    "options": [],
+    "validation": {
+      "email": true
+    },
+    "tables": [
+      "T2-4",
+      "T22-05"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "contact-person",
+    "subCategoryId": "md-1",
+    "name": "contactPerson",
+    "label": "Contact person",
+    "clauseNumber": "A1.4,1.5",
+    "type": "text",
+    "placeholder": "Enter Contact Person",
+    "isRequired": true,
+    "displayOrder": 5,
+    "options": [],
+    "validation": {
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "tables": [
+      "T2-5",
+      "T22-06"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "name-of-model-and-variants",
+    "subCategoryId": "md-1",
+    "name": "nameOfModelAndVariants",
+    "label": "Name of model and variants",
+    "clauseNumber": "A1.5,1.6",
+    "type": "textarea",
+    "placeholder": "Enter name of model and variants",
+    "isRequired": true,
+    "displayOrder": 6,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-6",
+      "T22-07"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "base-fuel-type",
+    "subCategoryId": "md-1",
+    "name": "baseFuelType",
+    "label": "Base fuel type",
+    "clauseNumber": "A1.5.1",
+    "type": "text",
+    "placeholder": "Enter base fuel type",
+    "isRequired": true,
+    "displayOrder": 7,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-7"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "plants-of-manufacture",
+    "subCategoryId": "mpd-1",
+    "name": "plantsOfManufacture",
+    "label": "Plants of manufacture",
+    "clauseNumber": "A1.6",
+    "type": "textarea",
+    "placeholder": "Enter plant details",
+    "isRequired": true,
+    "displayOrder": 1,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-8"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-manufacturing-plant",
+    "subCategoryId": "mpd-1",
+    "name": "vehicleManufacturingPlant",
+    "label": "Vehicle manufacturing plant",
+    "clauseNumber": "A1.6.1",
+    "type": "textarea",
+    "placeholder": "Enter vehicle manufacturing plant name and address",
+    "isRequired": true,
+    "displayOrder": 2,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-9"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "engine-manufacturing-plant",
+    "subCategoryId": "mpd-1",
+    "name": "engineManufacturingPlant",
+    "label": "Engine manufacturing plant",
+    "clauseNumber": "A1.6.2",
+    "type": "textarea",
+    "placeholder": "Enter engine manufacturing plant name and address",
+    "isRequired": true,
+    "displayOrder": 3,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-10"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "importer-name-and-address",
+    "subCategoryId": "mpd-1",
+    "name": "importerNameAndAddress",
+    "label": "Importer Name and Address",
+    "clauseNumber": "A1.7",
+    "type": "textarea",
+    "placeholder": "Enter importer name and address",
+    "isRequired": true,
+    "displayOrder": 4,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-11"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "telephone-number",
+    "subCategoryId": "mpd-1",
+    "name": "telephoneNumber",
+    "label": "Telephone Number",
+    "clauseNumber": "A1.7.1",
+    "type": "text",
+    "placeholder": "Enter telephone number",
+    "isRequired": true,
+    "displayOrder": 5,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-12"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "email-address",
+    "subCategoryId": "mpd-1",
+    "name": "emailAddress",
+    "label": "Email Address",
+    "clauseNumber": "A1.7.2",
+    "type": "email",
+    "placeholder": "Enter email address",
+    "isRequired": true,
+    "displayOrder": 6,
+    "options": [],
+    "validation": {
+      "email": true
+    },
+    "tables": [
+      "T2-13"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "contact-person",
+    "subCategoryId": "mpd-1",
+    "name": "contactPerson",
+    "label": "Contact Person",
+    "clauseNumber": "A1.7.3",
+    "type": "text",
+    "placeholder": "Enter contact person name",
+    "isRequired": true,
+    "displayOrder": 7,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-14"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "bus-body-builder-category",
+    "subCategoryId": "mpd-1",
+    "name": "busBodyBuilderCategory",
+    "label": "Bus Body Builder Category",
+    "clauseNumber": "1.10.2,1.1",
+    "type": "select",
+    "placeholder": "Select bus body builder category",
+    "isRequired": true,
+    "displayOrder": 8,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T22-12",
+      "T22P1-1"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "zab-provisional-certificate-details",
+    "subCategoryId": "mpd-1",
+    "name": "zabProvisionalCertificateDetails",
+    "label": "ZAB Provisional Certificate Details",
+    "clauseNumber": "1.11,1.2",
+    "type": "textarea",
+    "placeholder": "Enter certificate number and date",
+    "isRequired": true,
+    "displayOrder": 9,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T22-13",
+      "T22P1-2"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "nab-final-certificate-details",
+    "subCategoryId": "mpd-1",
+    "name": "nabFinalCertificateDetails",
+    "label": "NAB Final Certificate Details",
+    "clauseNumber": "1.3",
+    "type": "textarea",
+    "placeholder": "Enter certificate number and date",
+    "isRequired": true,
+    "displayOrder": 10,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T22P1-3"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "base-cmvr-compliance-certificate-details",
+    "subCategoryId": "mpd-1",
+    "name": "baseCmvrComplianceCertificateDetails",
+    "label": "Base CMVR Compliance Certificate Details",
+    "clauseNumber": "A1.7.3,1.4",
+    "type": "textarea",
+    "placeholder": "Enter certificate number and date",
+    "isRequired": true,
+    "displayOrder": 11,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-14",
+      "T22P1-4"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-type",
+    "subCategoryId": "vbd-1",
+    "name": "vehicleType",
+    "label": "Vehicle Type",
+    "clauseNumber": "A2.0",
+    "type": "text",
+    "placeholder": "Enter vehicle type",
+    "isRequired": true,
+    "displayOrder": 1,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-15"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "type-of-vehicle",
+    "subCategoryId": "vbd-1",
+    "name": "typeOfVehicle",
+    "label": "Type of Vehicle",
+    "clauseNumber": "A2.1",
+    "type": "select",
+    "placeholder": "Select vehicle type",
+    "isRequired": true,
+    "displayOrder": 2,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-16"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "usage",
+    "subCategoryId": "vbd-1",
+    "name": "usage",
+    "label": "Usage",
+    "clauseNumber": "A2.1.1",
+    "type": "select",
+    "placeholder": "Select vehicle usage",
+    "isRequired": true,
+    "displayOrder": 3,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-17"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "control",
+    "subCategoryId": "vbd-1",
+    "name": "control",
+    "label": "Control",
+    "clauseNumber": "A2.1.2",
+    "type": "select",
+    "placeholder": "Select control type",
+    "isRequired": true,
+    "displayOrder": 4,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-18"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "drive",
+    "subCategoryId": "vbd-1",
+    "name": "drive",
+    "label": "Drive",
+    "clauseNumber": "A2.1.3,B4.4.1",
+    "type": "select",
+    "placeholder": "Select drive type",
+    "isRequired": true,
+    "displayOrder": 5,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-19",
+      "T3-101"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "cab-type",
+    "subCategoryId": "vbd-1",
+    "name": "cabType",
+    "label": "Cab Type",
+    "clauseNumber": "A2.1.4",
+    "type": "select",
+    "placeholder": "Select cab type",
+    "isRequired": true,
+    "displayOrder": 6,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-20"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "load-body",
+    "subCategoryId": "vbd-1",
+    "name": "loadBody",
+    "label": "Load Body",
+    "clauseNumber": "A2.1.5",
+    "type": "select",
+    "placeholder": "Select load body",
+    "isRequired": true,
+    "displayOrder": 7,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-21"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-category",
+    "subCategoryId": "vbd-1",
+    "name": "vehicleCategory",
+    "label": "Vehicle Category",
+    "clauseNumber": "A2.2",
+    "type": "text",
+    "placeholder": "Enter vehicle category",
+    "isRequired": true,
+    "displayOrder": 8,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-22"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-available-modes",
+    "subCategoryId": "vbd-1",
+    "name": "vehicleAvailableModes",
+    "label": "Vehicle Available Modes",
+    "clauseNumber": "A2.3",
+    "type": "textarea",
+    "placeholder": "Enter available vehicle modes",
+    "isRequired": true,
+    "displayOrder": 9,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-23"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-default-mode",
+    "subCategoryId": "vbd-1",
+    "name": "vehicleDefaultMode",
+    "label": "Vehicle Default Mode",
+    "clauseNumber": "A2.3.1",
+    "type": "textarea",
+    "placeholder": "Enter default mode details",
+    "isRequired": true,
+    "displayOrder": 10,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-24"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-performance",
+    "subCategoryId": "vbd-1",
+    "name": "vehiclePerformance",
+    "label": "Vehicle Performance",
+    "clauseNumber": "A3.0",
+    "type": "textarea",
+    "placeholder": "Enter vehicle performance",
+    "isRequired": true,
+    "displayOrder": 11,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-25"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "maximum-recommended-gradeability",
+    "subCategoryId": "vbd-1",
+    "name": "maximumRecommendedGradeability",
+    "label": "Maximum Recommended Gradeability",
+    "clauseNumber": "A3.1",
+    "type": "text",
+    "placeholder": "Enter gradeability in degrees",
+    "isRequired": true,
+    "displayOrder": 12,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-26"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "maximum-design-speed",
+    "subCategoryId": "vbd-1",
+    "name": "maximumDesignSpeed",
+    "label": "Maximum Design Speed",
+    "clauseNumber": "A3.2,17",
+    "type": "number",
+    "placeholder": "Enter maximum design speed in km/h",
+    "isRequired": true,
+    "displayOrder": 13,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-27",
+      "T7C-128"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "maximum-speed-unladen",
+    "subCategoryId": "vbd-1",
+    "name": "maximumSpeedUnladen",
+    "label": "Maximum Speed - Unladen",
+    "clauseNumber": "A3.2.1,B3.8.3,17.1",
+    "type": "number",
+    "placeholder": "Enter unladen speed in km/h",
+    "isRequired": true,
+    "displayOrder": 14,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-28",
+      "T3-86",
+      "T7C-129"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "maximum-speed-laden",
+    "subCategoryId": "vbd-1",
+    "name": "maximumSpeedLaden",
+    "label": "Maximum Speed - Laden",
+    "clauseNumber": "A3.2.2,B3.8.4,17.2",
+    "type": "number",
+    "placeholder": "Enter laden speed in km/h",
+    "isRequired": true,
+    "displayOrder": 15,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-29",
+      "T3-87",
+      "T7C-130"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "co2-reducing-technologies-available",
+    "subCategoryId": "vbd-1",
+    "name": "co2ReducingTechnologiesAvailable",
+    "label": "CO2 Reducing Technologies Available",
+    "clauseNumber": "A3.3",
+    "type": "select",
+    "placeholder": "Select Yes or No",
+    "isRequired": true,
+    "displayOrder": 16,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-30"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "base-variant-details",
+    "subCategoryId": "vbd-1",
+    "name": "baseVariantDetails",
+    "label": "Base / Variant Details",
+    "clauseNumber": "",
+    "type": "textarea",
+    "placeholder": "Enter base/variant details",
+    "isRequired": true,
+    "displayOrder": 17,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-31"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "regenerative-braking",
+    "subCategoryId": "vbd-1",
+    "name": "regenerativeBraking",
+    "label": "Regenerative Braking",
+    "clauseNumber": "Regenerative braking",
+    "type": "select",
+    "placeholder": "Select Yes or No",
+    "isRequired": true,
+    "displayOrder": 18,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-32"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "start-stop-system",
+    "subCategoryId": "vbd-1",
+    "name": "startStopSystem",
+    "label": "Start-Stop System",
+    "clauseNumber": "Start-Stop System",
+    "type": "select",
+    "placeholder": "Select Yes or No",
+    "isRequired": true,
+    "displayOrder": 19,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-33"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-pressure-monitoring-system",
+    "subCategoryId": "vbd-1",
+    "name": "tyrePressureMonitoringSystem",
+    "label": "Tyre Pressure Monitoring System",
+    "clauseNumber": "Tyre pressure monitoring system",
+    "type": "select",
+    "placeholder": "Select Yes or No",
+    "isRequired": true,
+    "displayOrder": 20,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-34"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "six-or-more-speed-transmission",
+    "subCategoryId": "vbd-1",
+    "name": "sixOrMoreSpeedTransmission",
+    "label": "6 or More Speed Transmission",
+    "clauseNumber": "6 or more Speed Transmission",
+    "type": "select",
+    "placeholder": "Select Yes or No",
+    "isRequired": true,
+    "displayOrder": 21,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-35"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "any-other-technology",
+    "subCategoryId": "vbd-1",
+    "name": "anyOtherTechnology",
+    "label": "Any Other Technology",
+    "clauseNumber": "Any other technology (manufacturer to enclose details)",
+    "type": "textarea",
+    "placeholder": "Enter other technology details",
+    "isRequired": true,
+    "displayOrder": 22,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-36"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-class",
+    "subCategoryId": "vbd-1",
+    "name": "vehicleClass",
+    "label": "Vehicle Class",
+    "clauseNumber": "A4.0",
+    "type": "select",
+    "placeholder": "Select vehicle class",
+    "isRequired": true,
+    "displayOrder": 23,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T2-37"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-dimensions",
+    "subCategoryId": "vbd-1",
+    "name": "vehicleDimensions",
+    "label": "Vehicle Dimensions",
+    "clauseNumber": "B1.0",
+    "type": "textarea",
+    "placeholder": "Enter vehicle dimensions",
+    "isRequired": true,
+    "displayOrder": 24,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-1"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "overall-length",
+    "subCategoryId": "vbd-1",
+    "name": "overallLength",
+    "label": "Overall Length",
+    "clauseNumber": "B1.1,15.3",
+    "type": "number",
+    "placeholder": "Enter overall length in mm",
+    "isRequired": true,
+    "displayOrder": 25,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-2",
+      "T7C-98"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "total-length",
+    "subCategoryId": "vbd-1",
+    "name": "totalLength",
+    "label": "Total Length",
+    "clauseNumber": "B1.1.1",
+    "type": "number",
+    "placeholder": "Enter total length in mm",
+    "isRequired": true,
+    "displayOrder": 26,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-3"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "overall-width",
+    "subCategoryId": "vbd-1",
+    "name": "overallWidth",
+    "label": "Overall Width",
+    "clauseNumber": "B1.2,15.2",
+    "type": "number",
+    "placeholder": "Enter overall width in mm",
+    "isRequired": true,
+    "displayOrder": 27,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-4",
+      "T7C-97"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "overall-height-unladen",
+    "subCategoryId": "vbd-1",
+    "name": "overallHeightUnladen",
+    "label": "Overall Height (Unladen)",
+    "clauseNumber": "B1.3,15.4",
+    "type": "number",
+    "placeholder": "Enter overall height in mm",
+    "isRequired": true,
+    "displayOrder": 28,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-5",
+      "T7C-99"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-base",
+    "subCategoryId": "vbd-1",
+    "name": "wheelBase",
+    "label": "Wheel Base",
+    "clauseNumber": "B1.4,15.1",
+    "type": "number",
+    "placeholder": "Enter wheel base in mm",
+    "isRequired": true,
+    "displayOrder": 29,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-6",
+      "T7C-96"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "axle-spacing",
+    "subCategoryId": "vbd-1",
+    "name": "axleSpacing",
+    "label": "Axle Spacing",
+    "clauseNumber": "B1.4.1",
+    "type": "text",
+    "placeholder": "Enter axle spacing in mm",
+    "isRequired": true,
+    "displayOrder": 30,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-7"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-track",
+    "subCategoryId": "vbd-1",
+    "name": "wheelTrack",
+    "label": "Wheel Track",
+    "clauseNumber": "B1.5,15.5",
+    "type": "text",
+    "placeholder": "Enter wheel track in mm",
+    "isRequired": true,
+    "displayOrder": 31,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-8",
+      "T7C-100"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "front-wheel-track",
+    "subCategoryId": "vbd-1",
+    "name": "frontWheelTrack",
+    "label": "Front Wheel Track",
+    "clauseNumber": "B1.5.1,15.5.1",
+    "type": "number",
+    "placeholder": "Enter front wheel track in mm",
+    "isRequired": true,
+    "displayOrder": 32,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-9",
+      "T7C-101"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "rear-wheel-track",
+    "subCategoryId": "vbd-1",
+    "name": "rearWheelTrack",
+    "label": "Rear Wheel Track",
+    "clauseNumber": "B1.5.2,15.5.2",
+    "type": "number",
+    "placeholder": "Enter rear wheel track in mm",
+    "isRequired": true,
+    "displayOrder": 33,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-10",
+      "T7C-102"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "other-axles",
+    "subCategoryId": "vbd-1",
+    "name": "otherAxles",
+    "label": "Other Axles",
+    "clauseNumber": "B1.5.3",
+    "type": "textarea",
+    "placeholder": "Enter other axle measurements in mm",
+    "isRequired": true,
+    "displayOrder": 34,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-11"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "body-overhang",
+    "subCategoryId": "vbd-1",
+    "name": "bodyOverhang",
+    "label": "Body Overhang",
+    "clauseNumber": "B1.6,15.8",
+    "type": "text",
+    "placeholder": "Enter body overhang in mm",
+    "isRequired": true,
+    "displayOrder": 35,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-12",
+      "T7C-105"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "body-front-end-overhang",
+    "subCategoryId": "vbd-1",
+    "name": "bodyFrontEndOverhang",
+    "label": "Body Front End Overhang",
+    "clauseNumber": "B1.6.1,15.8.1",
+    "type": "number",
+    "placeholder": "Enter front end overhang in mm",
+    "isRequired": true,
+    "displayOrder": 36,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-13",
+      "T7C-106"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "body-rear-end-overhang",
+    "subCategoryId": "vbd-1",
+    "name": "bodyRearEndOverhang",
+    "label": "Body Rear End Overhang",
+    "clauseNumber": "B1.6.2,15.8.2",
+    "type": "number",
+    "placeholder": "Enter rear end overhang in mm",
+    "isRequired": true,
+    "displayOrder": 37,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-14",
+      "T7C-107"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "frame-overhang",
+    "subCategoryId": "vbd-1",
+    "name": "frameOverhang",
+    "label": "Frame Overhang",
+    "clauseNumber": "B1.7,15.9",
+    "type": "text",
+    "placeholder": "Enter frame overhang in mm",
+    "isRequired": true,
+    "displayOrder": 38,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-15",
+      "T7C-108"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "frame-front-end-overhang",
+    "subCategoryId": "vbd-1",
+    "name": "frameFrontEndOverhang",
+    "label": "Frame Front End Overhang",
+    "clauseNumber": "B1.7.1,15.9.1",
+    "type": "text",
+    "placeholder": "Enter frame front end overhang in mm",
+    "isRequired": true,
+    "displayOrder": 39,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-16",
+      "T7C-109"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "frame-rear-end-overhang",
+    "subCategoryId": "vbd-1",
+    "name": "frameRearEndOverhang",
+    "label": "Frame Rear End Overhang",
+    "clauseNumber": "B1.7.2,15.9.2",
+    "type": "number",
+    "placeholder": "Enter frame rear end overhang in mm",
+    "isRequired": true,
+    "displayOrder": 40,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-17",
+      "T7C-110"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "load-body-dimensions",
+    "subCategoryId": "vbd-1",
+    "name": "loadBodyDimensions",
+    "label": "Load Body Dimensions",
+    "clauseNumber": "B1.8",
+    "type": "text",
+    "placeholder": "Enter length, breadth and height in mm",
+    "isRequired": true,
+    "displayOrder": 41,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-18"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "lateral-projection",
+    "subCategoryId": "vbd-1",
+    "name": "lateralProjection",
+    "label": "Lateral Projection",
+    "clauseNumber": "B1.9",
+    "type": "text",
+    "placeholder": "Enter lateral projection in mm",
+    "isRequired": true,
+    "displayOrder": 42,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-19"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "cargo-box-dimensions",
+    "subCategoryId": "vbd-1",
+    "name": "cargoBoxDimensions",
+    "label": "Cargo Box Dimensions",
+    "clauseNumber": "B1.10",
+    "type": "textarea",
+    "placeholder": "Enter cargo box dimensions",
+    "isRequired": true,
+    "displayOrder": 43,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-20"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "cargo-box-length",
+    "subCategoryId": "vbd-1",
+    "name": "cargoBoxLength",
+    "label": "Cargo Box Length",
+    "clauseNumber": "B1.10.1",
+    "type": "number",
+    "placeholder": "Enter cargo box length in mm",
+    "isRequired": true,
+    "displayOrder": 44,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-21"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "cargo-box-width",
+    "subCategoryId": "vbd-1",
+    "name": "cargoBoxWidth",
+    "label": "Cargo Box Width",
+    "clauseNumber": "B1.10.2",
+    "type": "number",
+    "placeholder": "Enter cargo box width in mm",
+    "isRequired": true,
+    "displayOrder": 45,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-22"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "cargo-box-height",
+    "subCategoryId": "vbd-1",
+    "name": "cargoBoxHeight",
+    "label": "Cargo Box Height",
+    "clauseNumber": "B1.10.3",
+    "type": "number",
+    "placeholder": "Enter cargo box height in mm",
+    "isRequired": true,
+    "displayOrder": 46,
+    "options": [],
+    "validation": {
+      "unit": "mm"
+    },
+    "tables": [
+      "T3-23"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "weights",
+    "subCategoryId": "wd-1",
+    "name": "weights",
+    "label": "Weights",
+    "clauseNumber": "B2.0",
+    "type": "textarea",
+    "placeholder": "Enter weights",
+    "isRequired": true,
+    "displayOrder": 1,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-24"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "vehicle-kerb-weight",
+    "subCategoryId": "wd-1",
+    "name": "vehicleKerbWeight",
+    "label": "Vehicle Kerb Weight",
+    "clauseNumber": "B2.1,16.3",
+    "type": "number",
+    "placeholder": "Enter vehicle kerb weight in kg",
+    "isRequired": true,
+    "displayOrder": 2,
+    "options": [],
+    "validation": {
+      "unit": "kg"
+    },
+    "tables": [
+      "T3-25",
+      "T7C-123"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "front-axle-1-weight",
+    "subCategoryId": "wd-1",
+    "name": "frontAxle1Weight",
+    "label": "Front Axle 1 Weight",
+    "clauseNumber": "B2.1.1,16.3.1",
+    "type": "number",
+    "placeholder": "Enter front axle 1 weight in kg",
+    "isRequired": true,
+    "displayOrder": 3,
+    "options": [],
+    "validation": {
+      "unit": "kg",
+      "numericOnly": true
+    },
+    "tables": [
+      "T3-26",
+      "T7C-124"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "front-axle-2-weight",
+    "subCategoryId": "wd-1",
+    "name": "frontAxle2Weight",
+    "label": "Front Axle 2 Weight",
+    "clauseNumber": "B2.1.2",
+    "type": "number",
+    "placeholder": "Enter front axle 2 weight in kg",
+    "isRequired": true,
+    "displayOrder": 4,
+    "options": [],
+    "validation": {
+      "unit": "kg",
+      "numericOnly": true
+    },
+    "tables": [
+      "T3-27"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "rear-axle-weight",
+    "subCategoryId": "wd-1",
+    "name": "rearAxleWeight",
+    "label": "Rear Axle Weight",
+    "clauseNumber": "B2.1.3,16.3.2",
+    "type": "number",
+    "placeholder": "Enter rear axle weight in kg",
+    "isRequired": true,
+    "displayOrder": 5,
+    "options": [],
+    "validation": {
+      "unit": "kg",
+      "numericOnly": true
+    },
+    "tables": [
+      "T3-28",
+      "T7C-125"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "trailer-axle-weight",
+    "subCategoryId": "wd-1",
+    "name": "trailerAxleWeight",
+    "label": "Trailer Axle Weight",
+    "clauseNumber": "B2.1.4",
+    "type": "number",
+    "placeholder": "Enter trailer axle weight in kg",
+    "isRequired": true,
+    "displayOrder": 6,
+    "options": [],
+    "validation": {
+      "unit": "kg"
+    },
+    "tables": [
+      "T3-29"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "total-weight",
+    "subCategoryId": "wd-1",
+    "name": "totalWeight",
+    "label": "Total Weight",
+    "clauseNumber": "B2.1.5",
+    "type": "number",
+    "placeholder": "Enter total weight in kg",
+    "isRequired": true,
+    "displayOrder": 7,
+    "options": [],
+    "validation": {
+      "unit": "kg",
+      "numericOnly": true
+    },
+    "tables": [
+      "T3-30"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "gross-vehicle-weight",
+    "subCategoryId": "wd-1",
+    "name": "grossVehicleWeight",
+    "label": "Gross Vehicle Weight",
+    "clauseNumber": "B2.2,16.1",
+    "type": "number",
+    "placeholder": "Enter gross vehicle weight in kg",
+    "isRequired": true,
+    "displayOrder": 8,
+    "options": [],
+    "validation": {
+      "unit": "kg",
+      "numericOnly": true
+    },
+    "tables": [
+      "T3-31",
+      "T7C-115"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "maximum-permissible-axle-weights",
+    "subCategoryId": "wd-1",
+    "name": "maximumPermissibleAxleWeights",
+    "label": "Maximum Permissible Axle Weights",
+    "clauseNumber": "B2.2.1",
+    "type": "textarea",
+    "placeholder": "Enter maximum permissible axle weights",
+    "isRequired": true,
+    "displayOrder": 9,
+    "options": [],
+    "validation": {
+      "unit": "kg"
+    },
+    "tables": [
+      "T3-32"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "maximum-permissible-front-axle-weight",
+    "subCategoryId": "wd-1",
+    "name": "maximumPermissibleFrontAxleWeight",
+    "label": "Maximum Permissible Front Axle Weight",
+    "clauseNumber": "B2.2.2,16.1.1",
+    "type": "number",
+    "placeholder": "Enter maximum permissible front axle weight in kg",
+    "isRequired": true,
+    "displayOrder": 10,
+    "options": [],
+    "validation": {
+      "unit": "kg",
+      "numericOnly": true
+    },
+    "tables": [
+      "T3-33",
+      "T7C-116"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "maximum-permissible-rear-axle-weight",
+    "subCategoryId": "wd-1",
+    "name": "maximumPermissibleRearAxleWeight",
+    "label": "Maximum Permissible Rear Axle Weight",
+    "clauseNumber": "B2.2.3,16.1.1",
+    "type": "number",
+    "placeholder": "Enter maximum permissible rear axle weight in kg",
+    "isRequired": true,
+    "displayOrder": 11,
+    "options": [],
+    "validation": {
+      "unit": "kg",
+      "numericOnly": true
+    },
+    "tables": [
+      "T3-34",
+      "T7C-117"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "maximum-permissible-other-axle-weight",
+    "subCategoryId": "wd-1",
+    "name": "maximumPermissibleOtherAxleWeight",
+    "label": "Maximum Permissible Other Axle Weight",
+    "clauseNumber": "B2.2.4,16.1.3",
+    "type": "number",
+    "placeholder": "Enter maximum permissible other axle weight in kg",
+    "isRequired": true,
+    "displayOrder": 12,
+    "options": [],
+    "validation": {
+      "unit": "kg",
+      "numericOnly": true
+    },
+    "tables": [
+      "T3-35",
+      "T7C-118"
+    ],
+    "isActive": true
+  },
+   {
+    "id": "tyre-make",
+    "subCategoryId": "tyre",
+    "name": "tyreMake",
+    "label": "Make",
+    "clauseNumber": "B3.1",
+    "type": "text",
+    "placeholder": "Enter make",
+    "isRequired": true,
+    "displayOrder": 1,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-48",
+      "T8-1",
+      "T8-2",
+      "T8-3",
+      "T8-4"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-brand-trade-description",
+    "subCategoryId": "tyre",
+    "name": "tyreBrandTradeDescription",
+    "label": "Brand(s) Name(s) and/or Trade Description(s)",
+    "clauseNumber": "B3.1.1",
+    "type": "textarea",
+    "placeholder": "Enter brand name(s) and/or trade description(s)",
+    "isRequired": true,
+    "displayOrder": 2,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-49"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "ais-142-compliance",
+    "subCategoryId": "tyre",
+    "name": "ais142Compliance",
+    "label": "AIS-142 Compliance (Rolling Sound Emissions, Adhesion on Wet Surfaces, Rolling Resistance)",
+    "clauseNumber": "B3.1.2",
+    "type": "select",
+    "placeholder": "Select Yes / No",
+    "isRequired": true,
+    "displayOrder": 3,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-50"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-rolling-resistance",
+    "subCategoryId": "tyre",
+    "name": "tyreRollingResistance",
+    "label": "Tyre Rolling Resistance",
+    "clauseNumber": "B3.1.3",
+    "type": "text",
+    "placeholder": "Enter tyre rolling resistance",
+    "isRequired": true,
+    "displayOrder": 4,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-51"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-class",
+    "subCategoryId": "tyre",
+    "name": "tyreClass",
+    "label": "Tyre Class (C1 / C2 / C3) as per AIS:142",
+    "clauseNumber": "B3.1.4",
+    "type": "select",
+    "placeholder": "Select tyre class (C1 / C2 / C3)",
+    "isRequired": true,
+    "displayOrder": 5,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-52",
+      "T3-53"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-category-of-use",
+    "subCategoryId": "tyre",
+    "name": "tyreCategoryOfUse",
+    "label": "Category of Use (Normal / Special / Snow / Severe Snow)",
+    "clauseNumber": "B3.1.5",
+    "type": "select",
+    "placeholder": "Select category of use",
+    "isRequired": true,
+    "displayOrder": 6,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-54"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-tread-pattern-drawing",
+    "subCategoryId": "tyre",
+    "name": "tyreTreadPatternDrawing",
+    "label": "Tyre Tread Pattern along with Drawing",
+    "clauseNumber": "B3.1.7",
+    "type": "textarea",
+    "placeholder": "Enter tyre tread pattern / drawing details",
+    "isRequired": true,
+    "displayOrder": 7,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-55"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-identification",
+    "subCategoryId": "tyre",
+    "name": "tyreIdentification",
+    "label": "Identification: TAC No. / BIS License No. / E-Marking",
+    "clauseNumber": "B3.1.8",
+    "type": "text",
+    "placeholder": "Enter identification details",
+    "isRequired": true,
+    "displayOrder": 8,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-56",
+      "T8-1",
+      "T8-2",
+      "T8-3",
+      "T8-4"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-number-arrangement",
+    "subCategoryId": "tyre",
+    "name": "wheelNumberArrangement",
+    "label": "No. and Arrangement of Wheels",
+    "clauseNumber": "B3.2",
+    "type": "textarea",
+    "placeholder": "Enter number and arrangement of wheels",
+    "isRequired": true,
+    "displayOrder": 9,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-57"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-arrangement-front",
+    "subCategoryId": "tyre",
+    "name": "wheelArrangementFront",
+    "label": "Front",
+    "clauseNumber": "B3.2.1",
+    "type": "text",
+    "placeholder": "Enter front wheel details",
+    "isRequired": true,
+    "displayOrder": 10,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-58"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-arrangement-rear",
+    "subCategoryId": "tyre",
+    "name": "wheelArrangementRear",
+    "label": "Rear",
+    "clauseNumber": "B3.2.2",
+    "type": "text",
+    "placeholder": "Enter rear wheel details",
+    "isRequired": true,
+    "displayOrder": 11,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-59"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-arrangement-spare",
+    "subCategoryId": "tyre",
+    "name": "wheelArrangementSpare",
+    "label": "Spare Wheel",
+    "clauseNumber": "B3.2.3",
+    "type": "text",
+    "placeholder": "Enter spare wheel details",
+    "isRequired": true,
+    "displayOrder": 12,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-60"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-arrangement-identification",
+    "subCategoryId": "tyre",
+    "name": "wheelArrangementIdentification",
+    "label": "Identification: TAC No. / BIS License No. / E-Marking",
+    "clauseNumber": "B3.2.4",
+    "type": "text",
+    "placeholder": "Enter identification details",
+    "isRequired": true,
+    "displayOrder": 13,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-61"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-arrangement-others",
+    "subCategoryId": "tyre",
+    "name": "wheelArrangementOthers",
+    "label": "Others (for Articulated / Combination Vehicles)",
+    "clauseNumber": "B3.2.5",
+    "type": "textarea",
+    "placeholder": "Enter other details",
+    "isRequired": true,
+    "displayOrder": 14,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-62"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-type-specifications",
+    "subCategoryId": "tyre",
+    "name": "tyreTypeSpecifications",
+    "label": "Tyre Type (Radial / Cross Ply, Tube / Tubeless, Normal / Reinforced, Size Designation, Ply Rating, Speed Rating, Load Rating / Load Index)",
+    "clauseNumber": "B3.3",
+    "type": "textarea",
+    "placeholder": "Enter tyre specifications",
+    "isRequired": true,
+    "displayOrder": 15,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-63"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-spec-front-wheel",
+    "subCategoryId": "tyre",
+    "name": "tyreSpecFrontWheel",
+    "label": "Front Wheel",
+    "clauseNumber": "B3.3.1,12,1,1",
+    "type": "textarea",
+    "placeholder": "Enter front wheel tyre details",
+    "isRequired": true,
+    "displayOrder": 16,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-64",
+      "T7C-70"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-spec-rear-wheel",
+    "subCategoryId": "tyre",
+    "name": "tyreSpecRearWheel",
+    "label": "Rear Wheel",
+    "clauseNumber": "B3.3.2,12.2.2",
+    "type": "textarea",
+    "placeholder": "Enter rear wheel tyre details",
+    "isRequired": true,
+    "displayOrder": 17,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-65",
+      "T7C-71"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-spec-spare-wheel",
+    "subCategoryId": "tyre",
+    "name": "tyreSpecSpareWheel",
+    "label": "Spare Wheel (Other than Temporary Use Spare Wheel)",
+    "clauseNumber": "B3.3.3,12.2.3",
+    "type": "textarea",
+    "placeholder": "Enter spare wheel tyre details",
+    "isRequired": true,
+    "displayOrder": 18,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-66",
+      "T7C-72"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-spec-other-vehicle",
+    "subCategoryId": "tyre",
+    "name": "tyreSpecOtherVehicle",
+    "label": "Other (for Articulated / Combination Vehicles)",
+    "clauseNumber": "B3.3.4",
+    "type": "textarea",
+    "placeholder": "Enter other tyre details",
+    "isRequired": true,
+    "displayOrder": 19,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-67"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-rolling-radius",
+    "subCategoryId": "tyre",
+    "name": "tyreRollingRadius",
+    "label": "Rolling Radius",
+    "clauseNumber": "B3.4",
+    "type": "text",
+    "placeholder": "Enter rolling radius",
+    "isRequired": true,
+    "displayOrder": 20,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-68"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-static-rolling-radius",
+    "subCategoryId": "tyre",
+    "name": "tyreStaticRollingRadius",
+    "label": "Static Rolling Radius (M2, M3, N and T Category Vehicles Only)",
+    "clauseNumber": "B3.4.1",
+    "type": "text",
+    "placeholder": "Enter static rolling radius",
+    "isRequired": true,
+    "displayOrder": 21,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-69"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-dynamic-rolling-radius",
+    "subCategoryId": "tyre",
+    "name": "tyreDynamicRollingRadius",
+    "label": "Dynamic Rolling Radius (mm) as per IS 15633 / IS 15636",
+    "clauseNumber": "B3.4.2",
+    "type": "text",
+    "placeholder": "Enter dynamic rolling radius in mm",
+    "isRequired": true,
+    "displayOrder": 22,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-70"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-inflation-pressure-unladen",
+    "subCategoryId": "tyre",
+    "name": "tyreInflationPressureUnladen",
+    "label": "Inflation Pressure  Unladen (kg/cm� / kPa / psi)",
+    "clauseNumber": "B3.5",
+    "type": "text",
+    "placeholder": "Enter unladen inflation pressure",
+    "isRequired": true,
+    "displayOrder": 23,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-71"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-unladen-pressure-front",
+    "subCategoryId": "tyre",
+    "name": "tyreUnladenPressureFront",
+    "label": "Front",
+    "clauseNumber": "B3.5.1",
+    "type": "text",
+    "placeholder": "Enter front tyre pressure",
+    "isRequired": true,
+    "displayOrder": 24,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-72"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-unladen-pressure-rear",
+    "subCategoryId": "tyre",
+    "name": "tyreUnladenPressureRear",
+    "label": "Rear",
+    "clauseNumber": "B3.5.2",
+    "type": "text",
+    "placeholder": "Enter rear tyre pressure",
+    "isRequired": true,
+    "displayOrder": 25,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-73"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-unladen-pressure-other",
+    "subCategoryId": "tyre",
+    "name": "tyreUnladenPressureOther",
+    "label": "Other",
+    "clauseNumber": "B3.5.3",
+    "type": "text",
+    "placeholder": "Enter other tyre pressure",
+    "isRequired": true,
+    "displayOrder": 26,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-74"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-inflation-pressure-laden",
+    "subCategoryId": "tyre",
+    "name": "tyreInflationPressureLaden",
+    "label": "Inflation Pressure  Laden (kg/cm� / kPa / psi)",
+    "clauseNumber": "B3.6,12,7",
+    "type": "text",
+    "placeholder": "Enter laden inflation pressure",
+    "isRequired": true,
+    "displayOrder": 27,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-75",
+      "T7C-12.7"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-laden-pressure-front",
+    "subCategoryId": "tyre",
+    "name": "tyreLadenPressureFront",
+    "label": "Front",
+    "clauseNumber": "B3.6.1,12.7.1",
+    "type": "text",
+    "placeholder": "Enter front tyre pressure",
+    "isRequired": true,
+    "displayOrder": 28,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-76",
+      "T7C-12.7.1"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-laden-pressure-rear",
+    "subCategoryId": "tyre",
+    "name": "tyreLadenPressureRear",
+    "label": "Rear",
+    "clauseNumber": "B3.6.2,12.7.2",
+    "type": "text",
+    "placeholder": "Enter rear tyre pressure",
+    "isRequired": true,
+    "displayOrder": 29,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-77",
+      "T7C-12.7.2"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-laden-pressure-other",
+    "subCategoryId": "tyre",
+    "name": "tyreLadenPressureOther",
+    "label": "Other",
+    "clauseNumber": "B3.6.3",
+    "type": "text",
+    "placeholder": "Enter other tyre pressure",
+    "isRequired": true,
+    "displayOrder": 30,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-78"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-details",
+    "subCategoryId": "tyre",
+    "name": "wheelRimDetails",
+    "label": "Wheel Rim",
+    "clauseNumber": "",
+    "type": "textarea",
+    "placeholder": "Enter wheel rim details",
+    "isRequired": true,
+    "displayOrder": 1,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-445"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-front",
+    "subCategoryId": "tyre",
+    "name": "wheelRimFront",
+    "label": "Front",
+    "clauseNumber": "",
+    "type": "textarea",
+    "placeholder": "Enter front wheel details",
+    "isRequired": true,
+    "displayOrder": 2,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-446"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-front-make",
+    "subCategoryId": "tyre",
+    "name": "wheelRimFrontMake",
+    "label": "Make",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter front wheel rim make",
+    "isRequired": true,
+    "displayOrder": 3,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-447",
+      "T8-59"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-front-bis-license",
+    "subCategoryId": "tyre",
+    "name": "wheelRimFrontBisLicense",
+    "label": "BIS License Number",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter BIS license number",
+    "isRequired": true,
+    "displayOrder": 4,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-448",
+      "T8-59"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-front-supplier-part-number",
+    "subCategoryId": "tyre",
+    "name": "wheelRimFrontSupplierPartNumber",
+    "label": "Part Number of Wheel Rim Supplier",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter wheel rim supplier part number",
+    "isRequired": true,
+    "displayOrder": 5,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-449"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-front-size",
+    "subCategoryId": "tyre",
+    "name": "wheelRimFrontSize",
+    "label": "Size",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter wheel rim size",
+    "isRequired": true,
+    "displayOrder": 6,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-450",
+      "T7C-66"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-front-type",
+    "subCategoryId": "tyre",
+    "name": "wheelRimFrontType",
+    "label": "Type (Alloy / Sheet Metal / Spoke)",
+    "clauseNumber": "",
+    "type": "select",
+    "placeholder": "Select wheel rim type (Alloy / Sheet metal / Spoke)",
+    "isRequired": true,
+    "displayOrder": 7,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-451"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-rear",
+    "subCategoryId": "tyre",
+    "name": "wheelRimRear",
+    "label": "Rear",
+    "clauseNumber": "",
+    "type": "textarea",
+    "placeholder": "Enter rear wheel details",
+    "isRequired": true,
+    "displayOrder": 8,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-452"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-rear-make",
+    "subCategoryId": "tyre",
+    "name": "wheelRimRearMake",
+    "label": "Make",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter rear wheel rim make",
+    "isRequired": true,
+    "displayOrder": 9,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-453",
+      "T8-59"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-rear-bis-license",
+    "subCategoryId": "tyre",
+    "name": "wheelRimRearBisLicense",
+    "label": "BIS License Number",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter BIS license number",
+    "isRequired": true,
+    "displayOrder": 10,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-454",
+      "T8-59"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-rear-supplier-part-number",
+    "subCategoryId": "tyre",
+    "name": "wheelRimRearSupplierPartNumber",
+    "label": "Part Number of Wheel Rim Supplier",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter wheel rim supplier part number",
+    "isRequired": true,
+    "displayOrder": 11,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-455"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-rear-size",
+    "subCategoryId": "tyre",
+    "name": "wheelRimRearSize",
+    "label": "Size",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter wheel rim size",
+    "isRequired": true,
+    "displayOrder": 12,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-456",
+      "T7C-67"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-rear-type",
+    "subCategoryId": "tyre",
+    "name": "wheelRimRearType",
+    "label": "Type (Alloy / Sheet Metal / Spoke)",
+    "clauseNumber": "",
+    "type": "select",
+    "placeholder": "Select wheel rim type (Alloy / Sheet metal / Spoke)",
+    "isRequired": true,
+    "displayOrder": 13,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-457"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-spare",
+    "subCategoryId": "tyre",
+    "name": "wheelRimSpare",
+    "label": "Spare Wheel Rim",
+    "clauseNumber": "",
+    "type": "textarea",
+    "placeholder": "Enter spare wheel rim details",
+    "isRequired": true,
+    "displayOrder": 14,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-458"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-spare-make",
+    "subCategoryId": "tyre",
+    "name": "wheelRimSpareMake",
+    "label": "Make",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter spare wheel rim make",
+    "isRequired": true,
+    "displayOrder": 15,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-459",
+      "T8-59"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-spare-bis-license",
+    "subCategoryId": "tyre",
+    "name": "wheelRimSpareBisLicense",
+    "label": "BIS License Number",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter BIS license number",
+    "isRequired": true,
+    "displayOrder": 16,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-460",
+      "T8-59"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-spare-supplier-part-number",
+    "subCategoryId": "tyre",
+    "name": "wheelRimSpareSupplierPartNumber",
+    "label": "Part Number of Wheel Rim Supplier",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter wheel rim supplier part number",
+    "isRequired": true,
+    "displayOrder": 17,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-461"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-spare-size",
+    "subCategoryId": "tyre",
+    "name": "wheelRimSpareSize",
+    "label": "Size",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter wheel rim size",
+    "isRequired": true,
+    "displayOrder": 18,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-462",
+      "T7C-68"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "wheel-rim-spare-type",
+    "subCategoryId": "tyre",
+    "name": "wheelRimSpareType",
+    "label": "Type (Alloy / Sheet Metal / Spoke)",
+    "clauseNumber": "",
+    "type": "select",
+    "placeholder": "Select wheel rim type (Alloy / Sheet metal / Spoke)",
+    "isRequired": true,
+    "displayOrder": 19,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T3-463"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "spare-wheel-arrangement",
+    "subCategoryId": "tyre",
+    "name": "spareWheelArrangement",
+    "label": "Spare Wheel / Temporary Use Spare Wheel / Tyre Repair Kit / RFT as per AIS-110",
+    "clauseNumber": "",
+    "type": "select",
+    "placeholder": "Select spare wheel arrangement (Spare wheel / Temporary use spare wheel / Tyre Repair Kit / RFT)",
+    "isRequired": true,
+    "displayOrder": 20,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-73"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-speed-index",
+    "subCategoryId": "tyre",
+    "name": "tyreSpeedIndex",
+    "label": "Speed Index",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter speed index",
+    "isRequired": true,
+    "displayOrder": 21,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-74"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-speed-index-front",
+    "subCategoryId": "tyre",
+    "name": "tyreSpeedIndexFront",
+    "label": "Front",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter front wheel speed index",
+    "isRequired": true,
+    "displayOrder": 22,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-75"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-speed-index-rear",
+    "subCategoryId": "tyre",
+    "name": "tyreSpeedIndexRear",
+    "label": "Rear",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter rear wheel speed index",
+    "isRequired": true,
+    "displayOrder": 23,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-76"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-speed-index-spare",
+    "subCategoryId": "tyre",
+    "name": "tyreSpeedIndexSpare",
+    "label": "Spare Wheel (Other than Temporary Use Spare Wheel)",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter spare wheel speed index (other than temporary use spare wheel)",
+    "isRequired": true,
+    "displayOrder": 24,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-77"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-load-index-rating",
+    "subCategoryId": "tyre",
+    "name": "tyreLoadIndexRating",
+    "label": "Load Index / Load Rating",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter load index / load rating",
+    "isRequired": true,
+    "displayOrder": 25,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-78"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-load-index-front",
+    "subCategoryId": "tyre",
+    "name": "tyreLoadIndexFront",
+    "label": "Front",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter front wheel load index / load rating",
+    "isRequired": true,
+    "displayOrder": 26,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-79"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-load-index-rear",
+    "subCategoryId": "tyre",
+    "name": "tyreLoadIndexRear",
+    "label": "Rear",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter rear wheel load index / load rating",
+    "isRequired": true,
+    "displayOrder": 27,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-80"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-load-index-spare",
+    "subCategoryId": "tyre",
+    "name": "tyreLoadIndexSpare",
+    "label": "Spare Wheel (Other than Temporary Use Spare Wheel)",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter spare wheel load index / load rating (other than temporary use spare wheel)",
+    "isRequired": true,
+    "displayOrder": 28,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-81"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-type-selection",
+    "subCategoryId": "tyre",
+    "name": "tyreTypeSelection",
+    "label": "Tyre Type (Radial / Cross / Tube / Tubeless)",
+    "clauseNumber": "",
+    "type": "select",
+    "placeholder": "Select tyre type (Radial / Cross / Tube / Tubeless)",
+    "isRequired": true,
+    "displayOrder": 29,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-82"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-type-front",
+    "subCategoryId": "tyre",
+    "name": "tyreTypeFront",
+    "label": "Front",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter front wheel tyre type",
+    "isRequired": true,
+    "displayOrder": 30,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-83"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-type-rear",
+    "subCategoryId": "tyre",
+    "name": "tyreTypeRear",
+    "label": "Rear",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter rear wheel tyre type",
+    "isRequired": true,
+    "displayOrder": 31,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-84"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "tyre-type-spare",
+    "subCategoryId": "tyre",
+    "name": "tyreTypeSpare",
+    "label": "Spare Wheel (Other than Temporary Use Spare Wheel)",
+    "clauseNumber": "",
+    "type": "text",
+    "placeholder": "Enter spare wheel tyre type (other than temporary use spare wheel)",
+    "isRequired": true,
+    "displayOrder": 32,
+    "options": [],
+    "validation": {},
+    "tables": [
+      "T7C-85"
+    ],
+    "isActive": true
+  }
+]
