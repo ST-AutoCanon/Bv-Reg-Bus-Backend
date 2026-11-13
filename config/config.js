@@ -1,7 +1,7 @@
 module.exports = {
-  MONGO_IP: '69.164.253.48',
-  MONGO_USER: "testsukalpa",
-  MONGO_PWD: "Sukalpa#123",
+  MONGO_IP: 'localhost',
+  MONGO_USER: "admin",
+  MONGO_PWD: "admin",
   MONGO_PORT: 27017
 };
 
