@@ -38,5 +38,30 @@
     "code": "TYRE",
     "displayOrder": 5,
     "isActive": true
+  },
+    {
+    "id": "wheel-rim",
+    "categoryId": "tyres-wheel-rim",
+    "name": "Wheel Rim",
+    "code": "WHEEL-RIM",
+    "displayOrder": 6,
+    "isActive": true
+  },
+    {
+    "id": "wheel-nut",
+    "categoryId": "tyres-wheel-rim",
+    "name": "Wheel Nut",
+    "code": "WHEEL-NUT",
+    "displayOrder": 7,
+    "isActive": true
+  },
+    {
+    "id": "tpms",
+    "categoryId": "tyres-wheel-rim",
+    "name": "TPMS",
+    "code": "TPMS",
+    "displayOrder": 8,
+    "isActive": true
   }
+ 
 ]

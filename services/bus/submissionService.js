@@ -240,35 +240,80 @@ const normalizeRequestInfo = (requestInfo) => ({
 |--------------------------------------------------------------------------
 */
 
+// const buildTableResponse = (tableResults) => {
+//   const buildOneTable = (table) => {
+//     if (!table) {
+//       return {
+//         id: null,
+//         completionPercentage: 0,
+//         status: "not_started",
+//       };
+//     }
+
+//     return {
+//       id: table._id ?? null,
+//       completionPercentage: table.completionPercentage ?? 0,
+//       status: table.status ?? "not_started",
+//     };
+//   };
+
+//   return {
+//     table1A: buildOneTable(tableResults?.table1A),
+//     table11: buildOneTable(tableResults?.table11),
+//     table3A: buildOneTable(tableResults?.table3A),
+//   };
+// };
+
+
 const buildTableResponse = (tableResults) => {
-  const buildOneTable = (table) => {
-    if (!table) {
-      return {
-        id: null,
-        completionPercentage: 0,
-        status: "not_started",
-      };
-    }
+  const response = {};
 
-    return {
-      id: table._id ?? null,
-      completionPercentage: table.completionPercentage ?? 0,
-      status: table.status ?? "not_started",
+  for (const [tableId, table] of Object.entries(tableResults || {})) {
+    response[tableId] = {
+      id: table?._id ?? null,
+      completionPercentage: table?.completionPercentage ?? 0,
+      status: table?.status ?? "not_started",
     };
-  };
+  }
 
-  return {
-    table1A: buildOneTable(tableResults?.table1A),
-    table11: buildOneTable(tableResults?.table11),
-    table3A: buildOneTable(tableResults?.table3A),
-  };
+  return response;
 };
-
 /*
 |--------------------------------------------------------------------------
 | SYNC SEPARATE TABLE COLLECTIONS
 |--------------------------------------------------------------------------
 */
+
+// const syncTables = async (submission) => {
+//   const tableResults = await syncSubmissionTables({
+//     submissionId: submission._id,
+//     userId: submission.userId,
+//     values: submission.values,
+//   });
+
+//   // Update an optional table summary if the schema supports it.
+//   if (submission.tables !== undefined) {
+//     submission.tables = {
+//       table1A: {
+//         completionPercentage: tableResults.table1A?.completionPercentage ?? 0,
+//         status: tableResults.table1A?.status ?? "not_started",
+//       },
+//       table11: {
+//         completionPercentage: tableResults.table11?.completionPercentage ?? 0,
+//         status: tableResults.table11?.status ?? "not_started",
+//       },
+//       table3A: {
+//         completionPercentage: tableResults.table3A?.completionPercentage ?? 0,
+//         status: tableResults.table3A?.status ?? "not_started",
+//       },
+//     };
+
+//     await submission.save();
+//   }
+
+//   return buildTableResponse(tableResults);
+// };
+
 
 const syncTables = async (submission) => {
   const tableResults = await syncSubmissionTables({
@@ -277,29 +322,22 @@ const syncTables = async (submission) => {
     values: submission.values,
   });
 
-  // Update an optional table summary if the schema supports it.
+  // Update table summary if supported by Submission schema.
   if (submission.tables !== undefined) {
-    submission.tables = {
-      table1A: {
-        completionPercentage: tableResults.table1A?.completionPercentage ?? 0,
-        status: tableResults.table1A?.status ?? "not_started",
-      },
-      table11: {
-        completionPercentage: tableResults.table11?.completionPercentage ?? 0,
-        status: tableResults.table11?.status ?? "not_started",
-      },
-      table3A: {
-        completionPercentage: tableResults.table3A?.completionPercentage ?? 0,
-        status: tableResults.table3A?.status ?? "not_started",
-      },
-    };
+    submission.tables = {};
+
+    for (const [tableId, table] of Object.entries(tableResults)) {
+      submission.tables[tableId] = {
+        completionPercentage: table?.completionPercentage ?? 0,
+        status: table?.status ?? "not_started",
+      };
+    }
 
     await submission.save();
   }
 
   return buildTableResponse(tableResults);
 };
-
 /*
 |--------------------------------------------------------------------------
 | CREATE SUBMISSION

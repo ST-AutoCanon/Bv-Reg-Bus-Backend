@@ -246,32 +246,60 @@ const hasAllRequiredFieldsInForm = (values) => {
 |--------------------------------------------------------------------------
 */
 
-const buildTableSummary = (tableResults = {}) => {
-  const buildOne = (table) => ({
-    completionPercentage: table?.completionPercentage ?? 0,
-    status: table?.status ?? "not_started",
-  });
+// const buildTableSummary = (tableResults = {}) => {
+//   const buildOne = (table) => ({
+//     completionPercentage: table?.completionPercentage ?? 0,
+//     status: table?.status ?? "not_started",
+//   });
 
-  return {
-    table1A: buildOne(tableResults.table1A),
-    table11: buildOne(tableResults.table11),
-    table3A: buildOne(tableResults.table3A),
-  };
+//   return {
+//     table1A: buildOne(tableResults.table1A),
+//     table11: buildOne(tableResults.table11),
+//     table3A: buildOne(tableResults.table3A),
+//   };
+// };
+
+// const buildTablesResponse = (tableResults = {}) => {
+//   const buildOne = (table) => ({
+//     id: table?._id ?? table?.id ?? null,
+//     completionPercentage: table?.completionPercentage ?? 0,
+//     status: table?.status ?? "not_started",
+//   });
+
+//   return {
+//     table1A: buildOne(tableResults.table1A),
+//     table11: buildOne(tableResults.table11),
+//     table3A: buildOne(tableResults.table3A),
+//   };
+// };
+
+
+
+const buildTableSummary = (tableResults = {}) => {
+  return Object.fromEntries(
+    Object.entries(tableResults).map(([tableId, table]) => [
+      tableId,
+      {
+        completionPercentage: table?.completionPercentage ?? 0,
+        status: table?.status ?? "not_started",
+      },
+    ]),
+  );
 };
 
 const buildTablesResponse = (tableResults = {}) => {
-  const buildOne = (table) => ({
-    id: table?._id ?? table?.id ?? null,
-    completionPercentage: table?.completionPercentage ?? 0,
-    status: table?.status ?? "not_started",
-  });
-
-  return {
-    table1A: buildOne(tableResults.table1A),
-    table11: buildOne(tableResults.table11),
-    table3A: buildOne(tableResults.table3A),
-  };
+  return Object.fromEntries(
+    Object.entries(tableResults).map(([tableId, table]) => [
+      tableId,
+      {
+        id: table?._id ?? table?.id ?? null,
+        completionPercentage: table?.completionPercentage ?? 0,
+        status: table?.status ?? "not_started",
+      },
+    ]),
+  );
 };
+
 
 /*
 |--------------------------------------------------------------------------
