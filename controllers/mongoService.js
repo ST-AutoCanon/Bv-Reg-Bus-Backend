@@ -28,7 +28,7 @@ exports.getMongoConnection = async () => {
     const encodedPassword = encodeURIComponent(MONGO_PWD);
 
     const mongoConnectionURL =
-      `mongodb://${encodedUser}:${encodedPassword}@${MONGO_IP}:${MONGO_PORT}/sukalpatechnew1?authSource=admin`;
+      `mongodb://${encodedUser}:${encodedPassword}@${MONGO_IP}:${MONGO_PORT}/sukalpatechnew?authSource=admin`;
 
     mongoose.set("strictQuery", true);
 

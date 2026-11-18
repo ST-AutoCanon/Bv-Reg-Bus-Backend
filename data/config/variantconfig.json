@@ -1,0 +1,38 @@
+{
+  "vehicleVariants": [
+    {
+      "id": "base",
+      "label": "Base"
+    },
+    {
+      "id": "variant1",
+      "label": "Variant 1"
+    },
+    {
+      "id": "variant2",
+      "label": "Variant 2"
+    }
+  ],
+  "wdVariants": [
+    {
+      "id": "base",
+      "label": "Base"
+    },
+    {
+      "id": "variant1",
+      "label": "Variant 1"
+    },
+    {
+      "id": "variant2",
+      "label": "Variant 2"
+    },
+    {
+      "id": "variant3",
+      "label": "Variant 3"
+    },
+    {
+      "id": "variant4",
+      "label": "Variant 4"
+    }
+  ]
+}
