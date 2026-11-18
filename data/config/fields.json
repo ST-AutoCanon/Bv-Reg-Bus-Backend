@@ -20,6 +20,9 @@
       "T11-1",
       "T22-02"
     ],
+    "infoImages": [
+    "images/bus/Battery_capacity_(C3_for_Pure_Electric_Vehicle).png"
+  ],
     "isActive": true
   },
   {
@@ -609,23 +612,7 @@
     ],
     "isActive": true
   },
-  {
-    "id": "base-variant-details",
-    "subCategoryId": "vbd-1",
-    "name": "baseVariantDetails",
-    "label": "Base / Variant Details",
-    "clauseNumber": "",
-    "type": "textarea",
-    "placeholder": "Enter base/variant details",
-    "isRequired": true,
-    "displayOrder": 17,
-    "options": [],
-    "validation": {},
-    "tables": [
-      "T2-31"
-    ],
-    "isActive": true
-  },
+  
   {
     "id": "regenerative-braking",
     "subCategoryId": "vbd-1",
@@ -633,48 +620,54 @@
     "label": "Regenerative Braking",
     "clauseNumber": "Regenerative braking",
     "type": "select",
+    "inputType": "dropdown",
     "placeholder": "Select Yes or No",
     "isRequired": true,
     "displayOrder": 18,
-    "options": [],
-    "validation": {},
-    "tables": [
-      "T2-32"
+    "options": [
+      { "label": "Yes", "value": "Yes", "displayOrder": 1 },
+      { "label": "No", "value": "No", "displayOrder": 2 }
     ],
+    "validation": {},
+    "tables": ["T2-32"],
     "isActive": true
   },
-  {
+   {
     "id": "start-stop-system",
     "subCategoryId": "vbd-1",
     "name": "startStopSystem",
     "label": "Start-Stop System",
     "clauseNumber": "Start-Stop System",
     "type": "select",
+    "inputType": "dropdown",
     "placeholder": "Select Yes or No",
     "isRequired": true,
     "displayOrder": 19,
-    "options": [],
-    "validation": {},
-    "tables": [
-      "T2-33"
+    "options": [
+      { "label": "Yes", "value": "Yes", "displayOrder": 1 },
+      { "label": "No", "value": "No", "displayOrder": 2 }
     ],
+    "validation": {},
+    "tables": ["T2-33"],
     "isActive": true
   },
-  {
+   {
     "id": "tyre-pressure-monitoring-system",
     "subCategoryId": "vbd-1",
     "name": "tyrePressureMonitoringSystem",
     "label": "Tyre Pressure Monitoring System",
     "clauseNumber": "Tyre pressure monitoring system",
     "type": "select",
+    "inputType": "dropdown",
     "placeholder": "Select Yes or No",
     "isRequired": true,
     "displayOrder": 20,
-    "options": [],
-    "validation": {},
-    "tables": [
-      "T2-34"
+    "options": [
+      { "label": "Yes", "value": "Yes", "displayOrder": 1 },
+      { "label": "No", "value": "No", "displayOrder": 2 }
     ],
+    "validation": {},
+    "tables": ["T2-34"],
     "isActive": true
   },
   {
@@ -684,14 +677,16 @@
     "label": "6 or More Speed Transmission",
     "clauseNumber": "6 or more Speed Transmission",
     "type": "select",
+    "inputType": "dropdown",
     "placeholder": "Select Yes or No",
     "isRequired": true,
     "displayOrder": 21,
-    "options": [],
-    "validation": {},
-    "tables": [
-      "T2-35"
+    "options": [
+      { "label": "Yes", "value": "Yes", "displayOrder": 1 },
+      { "label": "No", "value": "No", "displayOrder": 2 }
     ],
+    "validation": {},
+    "tables": ["T2-35"],
     "isActive": true
   },
   {
@@ -701,14 +696,13 @@
     "label": "Any Other Technology",
     "clauseNumber": "Any other technology (manufacturer to enclose details)",
     "type": "textarea",
+    "inputType": "textarea",
     "placeholder": "Enter other technology details",
-    "isRequired": true,
+    "isRequired": false,
     "displayOrder": 22,
     "options": [],
     "validation": {},
-    "tables": [
-      "T2-36"
-    ],
+    "tables": ["T2-36"],
     "isActive": true
   },
   {

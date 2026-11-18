@@ -1,4 +1,8 @@
+
 import fields from "../../data/config/fields.json" with { type: "json" };
+import variantConfig from "../../data/config/variantconfig.json" with {
+  type: "json",
+};
 
 export const getFields = (req, res) => {
   try {
@@ -12,7 +16,10 @@ export const getFields = (req, res) => {
 
     res.status(200).json({
       success: true,
-      data,
+      data: {
+        fields: data,
+        variantConfig,
+      },
     });
   } catch (error) {
     res.status(500).json({
