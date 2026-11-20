@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import fields from "../../data/config/fields.json" with {
   type: "json",
 };
@@ -32,6 +33,34 @@ const getAuthenticatedUserId = (req) => {
 
   return normalizedId || null;
 };
+/*
+|--------------------------------------------------------------------------
+| GENERATE USER-SPECIFIC REQUEST NUMBER
+|--------------------------------------------------------------------------
+*/
+
+const generateBusRequestNumber = async (userId) => {
+  const year = new Date().getFullYear();
+  const counterId = `${userId}-BUS-${year}`;
+
+  const result = await mongoose.connection
+    .collection("counters")
+    .findOneAndUpdate(
+      { _id: counterId },
+      { $inc: { sequence: 1 } },
+      {
+        upsert: true,
+        returnDocument: "after",
+      }
+    );
+
+  // Supports both MongoDB driver result formats.
+  const counter = result?.value ?? result;
+
+  const sequence = String(counter.sequence).padStart(3, "0");
+
+  return `BUS-${year}-${sequence}`;
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +75,15 @@ const logDatabaseInfo = () => {
     "[Submission Debug] userId schema type:",
     Submission.schema.path("userId")?.instance ?? "undefined"
   );
+  console.log(
+  "[Submission Debug] Root requestNumber schema:",
+  !!Submission.schema.path("requestNumber")
+);
+
+console.log(
+  "[Submission Debug] Nested requestNumber schema:",
+  !!Submission.schema.path("requestInfo.requestNumber")
+);
 };
 
 const logError = (label, error) => {
@@ -367,12 +405,17 @@ export const createSubmission = async (req, res) => {
     }
 
     const completed = hasAllRequiredFieldsInForm(values);
+    const requestNumber = await generateBusRequestNumber(userId);
+    console.log("========== REQUEST NUMBER DEBUG ==========");
+console.log("Generated request number:", requestNumber);
+console.log("Schema has requestNumber:", !!Submission.schema.path("requestNumber"));
 
     console.log("[Submission Debug] Creating document");
     console.log("[Submission Debug] Status:", completed ? "completed" : "draft");
 
     createdSubmission = await Submission.create({
       userId,
+      requestNumber,
       requestInfo: {
         vehicleType: requestInfo.vehicleType,
         fuelType: requestInfo.fuelType,
@@ -384,6 +427,15 @@ export const createSubmission = async (req, res) => {
       values,
       status: completed ? "completed" : "draft",
     });
+    console.log(
+  "Saved request number:",
+  createdSubmission.requestNumber
+);
+
+console.log(
+  "Saved document:",
+  createdSubmission.toObject()
+);
 
     console.log("[Submission Debug] Document created:", String(createdSubmission._id));
     console.log("[Submission Debug] Stored userId:", String(createdSubmission.userId));
