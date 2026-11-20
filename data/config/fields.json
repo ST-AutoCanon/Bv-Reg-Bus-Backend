@@ -26,26 +26,27 @@
     "isActive": true
   },
   {
-    "id": "telephoneno",
-    "subCategoryId": "md-1",
-    "name": "telephoneno",
-    "label": "Telephone No",
-    "clauseNumber": "A1.2,1.2",
-    "type": "text",
-    "placeholder": "Enter Telephone No",
-    "isRequired": true,
-    "displayOrder": 2,
-    "options": [],
-    "validation": {
-      "minLength": 5,
-      "maxLength": 10
-    },
-    "tables": [
-      "T2-3",
-      "T22-03"
-    ],
-    "isActive": true
+  "id": "telephoneno",
+  "subCategoryId": "md-1",
+  "name": "telephoneno",
+  "label": "Telephone No",
+  "clauseNumber": "A1.2,1.2",
+  "type": "text",
+  "placeholder": "Enter Telephone No",
+  "isRequired": true,
+  "displayOrder": 2,
+  "options": [],
+  "validation": {
+    "minLength": 5,
+    "maxLength": 10,
+    "numericOnly": true
   },
+  "tables": [
+    "T2-3",
+    "T22-03"
+  ],
+  "isActive": true
+},
   {
     "id": "faxno",
     "subCategoryId": "md-1",
@@ -211,22 +212,26 @@
     "isActive": true
   },
   {
-    "id": "telephone-number",
-    "subCategoryId": "mpd-1",
-    "name": "telephoneNumber",
-    "label": "Telephone Number",
-    "clauseNumber": "A1.7.1",
-    "type": "text",
-    "placeholder": "Enter telephone number",
-    "isRequired": true,
-    "displayOrder": 5,
-    "options": [],
-    "validation": {},
-    "tables": [
-      "T2-12"
-    ],
-    "isActive": true
+  "id": "telephone-number",
+  "subCategoryId": "mpd-1",
+  "name": "telephoneNumber",
+  "label": "Telephone Number",
+  "clauseNumber": "A1.7.1",
+  "type": "text",
+  "placeholder": "Enter telephone number",
+  "isRequired": true,
+  "displayOrder": 5,
+  "options": [],
+  "validation": {
+    "numericOnly": true,
+    "minLength": 5,
+    "maxLength": 10
   },
+  "tables": [
+    "T2-12"
+  ],
+  "isActive": true
+},
   {
     "id": "email-address",
     "subCategoryId": "mpd-1",
@@ -2688,10 +2693,10 @@
     "id": "tpms-system",
     "subCategoryId": "tpms",
     "name": "tpmsSystem",
-    "label": "Tyre Pressure Monitoring System (TPMS) as per AIS-154 / Run Flat Warning System as applicable for Run-Flat tyres as per AIS-110 (If Provided)",
+    "label": "Tyre Pressure Monitoring System (TPMS) / Run-Flat Warning System" ,
     "clauseNumber": "B3.6.2",
     "type": "text",
-    "placeholder": "Enter tyre pressure monitoring system",
+    "placeholder": "Enter tyre pressure monitoring system" ,   
     "isRequired": true,
     "displayOrder": 1,
     "options": [],

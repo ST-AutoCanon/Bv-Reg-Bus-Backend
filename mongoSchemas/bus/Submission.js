@@ -1,3 +1,4 @@
+
 import mongoose from "mongoose";
 
 const submissionSchema = new mongoose.Schema(
@@ -9,12 +10,14 @@ const submissionSchema = new mongoose.Schema(
       index: true,
     },
 
-    /*
-     * Initial request information.
-     *
-     * This is filled in the popup when the user
-     * clicks "New Request".
-     */
+    // Permanent request number
+    requestNumber: {
+      type: String,
+      trim: true,
+      immutable: true,
+    },
+
+    // Initial request information
     requestInfo: {
       vehicleType: {
         type: String,
@@ -45,30 +48,10 @@ const submissionSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
+
     },
 
-    /*
-     * One request contains the ENTIRE vehicle form.
-     *
-     * Example:
-     *
-     * values: {
-     *   manufacturer: {
-     *     manufacturerName: "ABC",
-     *     modelName: "XYZ",
-     *     baseFuelType: "petrol"
-     *   },
-     *
-     *   dimensions: {
-     *     overallLength: 5000,
-     *     overallWidth: 1800
-     *   },
-     *
-     *   identification: {
-     *     vin: ""
-     *   }
-     * }
-     */
+    // Entire vehicle form
     values: {
       type: mongoose.Schema.Types.Mixed,
       default: {},
@@ -83,9 +66,23 @@ const submissionSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
-const Submission = mongoose.model("Submission", submissionSchema);
+// Unique request number for each user
+submissionSchema.index(
+  { userId: 1, requestNumber: 1 },
+  {
+    unique: true,
+    partialFilterExpression: {
+      requestNumber: { $type: "string" },
+    },
+  }
+);
+
+const Submission = mongoose.model(
+  "Submission",
+  submissionSchema
+);
 
 export default Submission;
