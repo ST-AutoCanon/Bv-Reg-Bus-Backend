@@ -21,32 +21,32 @@
       "T22-02"
     ],
     "infoImages": [
-    "images/bus/Battery_capacity_(C3_for_Pure_Electric_Vehicle).png"
-  ],
+      "images/bus/Battery_capacity_(C3_for_Pure_Electric_Vehicle).png"
+    ],
     "isActive": true
   },
   {
-  "id": "telephoneno",
-  "subCategoryId": "md-1",
-  "name": "telephoneno",
-  "label": "Telephone No",
-  "clauseNumber": "A1.2,1.2",
-  "type": "text",
-  "placeholder": "Enter Telephone No",
-  "isRequired": true,
-  "displayOrder": 2,
-  "options": [],
-  "validation": {
-    "minLength": 5,
-    "maxLength": 10,
-    "numericOnly": true
+    "id": "telephoneno",
+    "subCategoryId": "md-1",
+    "name": "telephoneno",
+    "label": "Telephone No",
+    "clauseNumber": "A1.2,1.2",
+    "type": "text",
+    "placeholder": "Enter Telephone No",
+    "isRequired": true,
+    "displayOrder": 2,
+    "options": [],
+    "validation": {
+      "minLength": 5,
+      "maxLength": 10,
+      "numericOnly": true
+    },
+    "tables": [
+      "T2-3",
+      "T22-03"
+    ],
+    "isActive": true
   },
-  "tables": [
-    "T2-3",
-    "T22-03"
-  ],
-  "isActive": true
-},
   {
     "id": "faxno",
     "subCategoryId": "md-1",
@@ -114,11 +114,27 @@
     "name": "nameOfModelAndVariants",
     "label": "Name of model and variants",
     "clauseNumber": "A1.5,1.6",
-    "type": "textarea",
-    "placeholder": "Enter name of model and variants",
+    "type": "select",
+    "placeholder": "Select number of models",
     "isRequired": true,
     "displayOrder": 6,
-    "options": [],
+    "options": [
+      {
+        "label": "One model",
+        "value": "One model",
+        "displayOrder": 1
+      },
+      {
+        "label": "2 models",
+        "value": "2 models",
+        "displayOrder": 2
+      },
+      {
+        "label": "More than 2 models",
+        "value": "More than 2 models",
+        "displayOrder": 3
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-6",
@@ -132,11 +148,62 @@
     "name": "baseFuelType",
     "label": "Base fuel type",
     "clauseNumber": "A1.5.1",
-    "type": "text",
-    "placeholder": "Enter base fuel type",
+    "type": "select",
+    "placeholder": "Select base fuel type",
     "isRequired": true,
     "displayOrder": 7,
-    "options": [],
+    "options": [
+      {
+        "label": "Petrol",
+        "value": "petrol",
+        "displayOrder": 1
+      },
+      {
+        "label": "Diesel",
+        "value": "diesel",
+        "displayOrder": 2
+      },
+      {
+        "label": "Ethanol",
+        "value": "ethanol",
+        "displayOrder": 3
+      },
+      {
+        "label": "Biodiesel",
+        "value": "biodiesel",
+        "displayOrder": 4
+      },
+      {
+        "label": "CNG",
+        "value": "cng",
+        "displayOrder": 5
+      },
+      {
+        "label": "LNG",
+        "value": "lng",
+        "displayOrder": 6
+      },
+      {
+        "label": "LPG",
+        "value": "lpg",
+        "displayOrder": 7
+      },
+      {
+        "label": "Electric",
+        "value": "electric",
+        "displayOrder": 8
+      },
+      {
+        "label": "Hydrogen",
+        "value": "hydrogen",
+        "displayOrder": 9
+      },
+      {
+        "label": "Other",
+        "value": "other",
+        "displayOrder": 10
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-7"
@@ -212,26 +279,27 @@
     "isActive": true
   },
   {
-  "id": "telephone-number",
-  "subCategoryId": "mpd-1",
-  "name": "telephoneNumber",
-  "label": "Telephone Number",
-  "clauseNumber": "A1.7.1",
-  "type": "text",
-  "placeholder": "Enter telephone number",
-  "isRequired": true,
-  "displayOrder": 5,
-  "options": [],
-  "validation": {
-    "numericOnly": true,
-    "minLength": 5,
-    "maxLength": 10
+    "id": "telephone-number",
+    "subCategoryId": "mpd-1",
+    "name": "telephoneNumber",
+    "label": "Telephone Number",
+    "clauseNumber": "A1.7.1",
+    "type": "text",
+    "placeholder": "Enter telephone number",
+    "suggestionFrom": "telephoneno",
+    "isRequired": true,
+    "displayOrder": 5,
+    "options": [],
+    "validation": {
+      "numericOnly": true,
+      "minLength": 5,
+      "maxLength": 10
+    },
+    "tables": [
+      "T2-12"
+    ],
+    "isActive": true
   },
-  "tables": [
-    "T2-12"
-  ],
-  "isActive": true
-},
   {
     "id": "email-address",
     "subCategoryId": "mpd-1",
@@ -274,8 +342,8 @@
     "name": "busBodyBuilderCategory",
     "label": "Bus Body Builder Category",
     "clauseNumber": "1.10.2,1.1",
-    "type": "select",
-    "placeholder": "Select bus body builder category",
+    "type": "text",
+    "placeholder": "Enter bus body builder category",
     "isRequired": true,
     "displayOrder": 8,
     "options": [],
@@ -366,7 +434,28 @@
     "placeholder": "Select vehicle type",
     "isRequired": true,
     "displayOrder": 2,
-    "options": [],
+    "options": [
+      {
+        "label": "Rigid",
+        "value": "rigid",
+        "displayOrder": 1
+      },
+      {
+        "label": "Articulated",
+        "value": "articulated",
+        "displayOrder": 2
+      },
+      {
+        "label": "Tractor-Trailer Combination",
+        "value": "tractor-trailer-combination",
+        "displayOrder": 3
+      },
+      {
+        "label": "Others",
+        "value": "others",
+        "displayOrder": 4
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-16"
@@ -383,7 +472,23 @@
     "placeholder": "Select vehicle usage",
     "isRequired": true,
     "displayOrder": 3,
-    "options": [],
+    "options": [
+      {
+        "label": "Goods",
+        "value": "goods",
+        "displayOrder": 1
+      },
+      {
+        "label": "Passenger",
+        "value": "passenger",
+        "displayOrder": 2
+      },
+      {
+        "label": "Others",
+        "value": "others",
+        "displayOrder": 3
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-17"
@@ -400,7 +505,28 @@
     "placeholder": "Select control type",
     "isRequired": true,
     "displayOrder": 4,
-    "options": [],
+    "options": [
+      {
+        "label": "Forward",
+        "value": "forward",
+        "displayOrder": 1
+      },
+      {
+        "label": "Semi-Forward",
+        "value": "semi-forward",
+        "displayOrder": 2
+      },
+      {
+        "label": "Normal",
+        "value": "normal",
+        "displayOrder": 3
+      },
+      {
+        "label": "Others",
+        "value": "others",
+        "displayOrder": 4
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-18"
@@ -417,7 +543,33 @@
     "placeholder": "Select drive type",
     "isRequired": true,
     "displayOrder": 5,
-    "options": [],
+    "options": [
+      {
+        "label": "4x2",
+        "value": "4x2",
+        "displayOrder": 1
+      },
+      {
+        "label": "4x4",
+        "value": "4x4",
+        "displayOrder": 2
+      },
+      {
+        "label": "6x2",
+        "value": "6x2",
+        "displayOrder": 3
+      },
+      {
+        "label": "6x4",
+        "value": "6x4",
+        "displayOrder": 4
+      },
+      {
+        "label": "Others",
+        "value": "others",
+        "displayOrder": 5
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-19",
@@ -435,7 +587,38 @@
     "placeholder": "Select cab type",
     "isRequired": true,
     "displayOrder": 6,
-    "options": [],
+    "options": [
+      {
+        "label": "Fully Built Cab (Tiltable)",
+        "value": "fully-built-cab-tiltable",
+        "displayOrder": 1
+      },
+      {
+        "label": "Fully Built Cab (Non-Tiltable)",
+        "value": "fully-built-cab-non-tiltable",
+        "displayOrder": 2
+      },
+      {
+        "label": "Sleeper Cab",
+        "value": "sleeper-cab",
+        "displayOrder": 3
+      },
+      {
+        "label": "Front End Structure",
+        "value": "front-end-structure",
+        "displayOrder": 4
+      },
+      {
+        "label": "Cowl with Wind Shield",
+        "value": "cowl-with-wind-shield",
+        "displayOrder": 5
+      },
+      {
+        "label": "Cowl without Wind Shield",
+        "value": "cowl-without-wind-shield",
+        "displayOrder": 6
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-20"
@@ -452,7 +635,18 @@
     "placeholder": "Select load body",
     "isRequired": true,
     "displayOrder": 7,
-    "options": [],
+    "options": [
+      {
+        "label": "Fitted",
+        "value": "fitted",
+        "displayOrder": 1
+      },
+      {
+        "label": "Not Fitted",
+        "value": "not-fitted",
+        "displayOrder": 2
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-21"
@@ -617,7 +811,6 @@
     ],
     "isActive": true
   },
-  
   {
     "id": "regenerative-braking",
     "subCategoryId": "vbd-1",
@@ -630,14 +823,24 @@
     "isRequired": true,
     "displayOrder": 18,
     "options": [
-      { "label": "Yes", "value": "Yes", "displayOrder": 1 },
-      { "label": "No", "value": "No", "displayOrder": 2 }
+      {
+        "label": "Yes",
+        "value": "Yes",
+        "displayOrder": 1
+      },
+      {
+        "label": "No",
+        "value": "No",
+        "displayOrder": 2
+      }
     ],
     "validation": {},
-    "tables": ["T2-32"],
+    "tables": [
+      "T2-32"
+    ],
     "isActive": true
   },
-   {
+  {
     "id": "start-stop-system",
     "subCategoryId": "vbd-1",
     "name": "startStopSystem",
@@ -649,14 +852,24 @@
     "isRequired": true,
     "displayOrder": 19,
     "options": [
-      { "label": "Yes", "value": "Yes", "displayOrder": 1 },
-      { "label": "No", "value": "No", "displayOrder": 2 }
+      {
+        "label": "Yes",
+        "value": "Yes",
+        "displayOrder": 1
+      },
+      {
+        "label": "No",
+        "value": "No",
+        "displayOrder": 2
+      }
     ],
     "validation": {},
-    "tables": ["T2-33"],
+    "tables": [
+      "T2-33"
+    ],
     "isActive": true
   },
-   {
+  {
     "id": "tyre-pressure-monitoring-system",
     "subCategoryId": "vbd-1",
     "name": "tyrePressureMonitoringSystem",
@@ -668,11 +881,21 @@
     "isRequired": true,
     "displayOrder": 20,
     "options": [
-      { "label": "Yes", "value": "Yes", "displayOrder": 1 },
-      { "label": "No", "value": "No", "displayOrder": 2 }
+      {
+        "label": "Yes",
+        "value": "Yes",
+        "displayOrder": 1
+      },
+      {
+        "label": "No",
+        "value": "No",
+        "displayOrder": 2
+      }
     ],
     "validation": {},
-    "tables": ["T2-34"],
+    "tables": [
+      "T2-34"
+    ],
     "isActive": true
   },
   {
@@ -687,11 +910,21 @@
     "isRequired": true,
     "displayOrder": 21,
     "options": [
-      { "label": "Yes", "value": "Yes", "displayOrder": 1 },
-      { "label": "No", "value": "No", "displayOrder": 2 }
+      {
+        "label": "Yes",
+        "value": "Yes",
+        "displayOrder": 1
+      },
+      {
+        "label": "No",
+        "value": "No",
+        "displayOrder": 2
+      }
     ],
     "validation": {},
-    "tables": ["T2-35"],
+    "tables": [
+      "T2-35"
+    ],
     "isActive": true
   },
   {
@@ -707,7 +940,9 @@
     "displayOrder": 22,
     "options": [],
     "validation": {},
-    "tables": ["T2-36"],
+    "tables": [
+      "T2-36"
+    ],
     "isActive": true
   },
   {
@@ -720,7 +955,28 @@
     "placeholder": "Select vehicle class",
     "isRequired": true,
     "displayOrder": 23,
-    "options": [],
+    "options": [
+      {
+        "label": "Class 1",
+        "value": "class-1",
+        "displayOrder": 1
+      },
+      {
+        "label": "Class 2",
+        "value": "class-2",
+        "displayOrder": 2
+      },
+      {
+        "label": "Class 3a",
+        "value": "class-3a",
+        "displayOrder": 3
+      },
+      {
+        "label": "Class 3b",
+        "value": "class-3b",
+        "displayOrder": 4
+      }
+    ],
     "validation": {},
     "tables": [
       "T2-37"
@@ -1416,7 +1672,7 @@
     ],
     "isActive": true
   },
-   {
+  {
     "id": "tyre-make",
     "subCategoryId": "tyre",
     "name": "tyreMake",
@@ -1498,7 +1754,23 @@
     "placeholder": "Select tyre class (C1 / C2 / C3)",
     "isRequired": true,
     "displayOrder": 5,
-    "options": [],
+    "options": [
+      {
+        "label": "C1",
+        "value": "C1",
+        "displayOrder": 1
+      },
+      {
+        "label": "C2",
+        "value": "C2",
+        "displayOrder": 2
+      },
+      {
+        "label": "C3",
+        "value": "C3",
+        "displayOrder": 3
+      }
+    ],
     "validation": {},
     "tables": [
       "T3-52",
@@ -1806,13 +2078,29 @@
     "id": "tyre-inflation-pressure-unladen",
     "subCategoryId": "tyre",
     "name": "tyreInflationPressureUnladen",
-    "label": "Inflation Pressure  Unladen (kg/cm� / kPa / psi)",
+    "label": "Inflation Pressure Unladen",
     "clauseNumber": "B3.5",
-    "type": "text",
-    "placeholder": "Enter unladen inflation pressure",
+    "type": "select",
+    "placeholder": "Select pressure unit",
     "isRequired": true,
     "displayOrder": 23,
-    "options": [],
+    "options": [
+      {
+        "label": "kg/cm2",
+        "value": "kg/cm2",
+        "displayOrder": 1
+      },
+      {
+        "label": "kPa",
+        "value": "kPa",
+        "displayOrder": 2
+      },
+      {
+        "label": "psi",
+        "value": "psi",
+        "displayOrder": 3
+      }
+    ],
     "validation": {},
     "tables": [
       "T3-71"
@@ -1874,13 +2162,29 @@
     "id": "tyre-inflation-pressure-laden",
     "subCategoryId": "tyre",
     "name": "tyreInflationPressureLaden",
-    "label": "Inflation Pressure  Laden (kg/cm� / kPa / psi)",
+    "label": "Inflation Pressure Laden",
     "clauseNumber": "B3.6,12,7",
-    "type": "text",
-    "placeholder": "Enter laden inflation pressure",
+    "type": "select",
+    "placeholder": "Select pressure unit",
     "isRequired": true,
     "displayOrder": 27,
-    "options": [],
+    "options": [
+      {
+        "label": "kg/cm2",
+        "value": "kg/cm2",
+        "displayOrder": 1
+      },
+      {
+        "label": "kPa",
+        "value": "kPa",
+        "displayOrder": 2
+      },
+      {
+        "label": "psi",
+        "value": "psi",
+        "displayOrder": 3
+      }
+    ],
     "validation": {},
     "tables": [
       "T3-75",
@@ -2053,10 +2357,26 @@
     "label": "Type (Alloy / Sheet Metal / Spoke)",
     "clauseNumber": "",
     "type": "select",
-    "placeholder": "Select wheel rim type (Alloy / Sheet metal / Spoke)",
+    "placeholder": "Select wheel rim type",
     "isRequired": true,
     "displayOrder": 7,
-    "options": [],
+    "options": [
+      {
+        "label": "Alloy",
+        "value": "Alloy",
+        "displayOrder": 1
+      },
+      {
+        "label": "Sheet Metal",
+        "value": "Sheet Metal",
+        "displayOrder": 2
+      },
+      {
+        "label": "Spoke",
+        "value": "Spoke",
+        "displayOrder": 3
+      }
+    ],
     "validation": {},
     "tables": [
       "T3-451"
@@ -2158,10 +2478,26 @@
     "label": "Type (Alloy / Sheet Metal / Spoke)",
     "clauseNumber": "",
     "type": "select",
-    "placeholder": "Select wheel rim type (Alloy / Sheet metal / Spoke)",
+    "placeholder": "Select wheel rim type",
     "isRequired": true,
     "displayOrder": 13,
-    "options": [],
+    "options": [
+      {
+        "label": "Alloy",
+        "value": "Alloy",
+        "displayOrder": 1
+      },
+      {
+        "label": "Sheet Metal",
+        "value": "Sheet Metal",
+        "displayOrder": 2
+      },
+      {
+        "label": "Spoke",
+        "value": "Spoke",
+        "displayOrder": 3
+      }
+    ],
     "validation": {},
     "tables": [
       "T3-457"
@@ -2263,10 +2599,26 @@
     "label": "Type (Alloy / Sheet Metal / Spoke)",
     "clauseNumber": "",
     "type": "select",
-    "placeholder": "Select wheel rim type (Alloy / Sheet metal / Spoke)",
+    "placeholder": "Select wheel rim type",
     "isRequired": true,
     "displayOrder": 19,
-    "options": [],
+    "options": [
+      {
+        "label": "Alloy",
+        "value": "Alloy",
+        "displayOrder": 1
+      },
+      {
+        "label": "Sheet Metal",
+        "value": "Sheet Metal",
+        "displayOrder": 2
+      },
+      {
+        "label": "Spoke",
+        "value": "Spoke",
+        "displayOrder": 3
+      }
+    ],
     "validation": {},
     "tables": [
       "T3-463"
@@ -2506,7 +2858,9 @@
     "displayOrder": 1,
     "options": [],
     "validation": {},
-    "tables": ["T3-483"],
+    "tables": [
+      "T3-483"
+    ],
     "isActive": true
   },
   {
@@ -2521,7 +2875,9 @@
     "displayOrder": 2,
     "options": [],
     "validation": {},
-    "tables": ["T3-484"],
+    "tables": [
+      "T3-484"
+    ],
     "isActive": true
   },
   {
@@ -2536,7 +2892,9 @@
     "displayOrder": 3,
     "options": [],
     "validation": {},
-    "tables": ["T3-485"],
+    "tables": [
+      "T3-485"
+    ],
     "isActive": true
   },
   {
@@ -2551,7 +2909,9 @@
     "displayOrder": 4,
     "options": [],
     "validation": {},
-    "tables": ["T3-486"],
+    "tables": [
+      "T3-486"
+    ],
     "isActive": true
   },
   {
@@ -2566,7 +2926,9 @@
     "displayOrder": 5,
     "options": [],
     "validation": {},
-    "tables": ["T3-487"],
+    "tables": [
+      "T3-487"
+    ],
     "isActive": true
   },
   {
@@ -2581,7 +2943,9 @@
     "displayOrder": 6,
     "options": [],
     "validation": {},
-    "tables": ["T3-488"],
+    "tables": [
+      "T3-488"
+    ],
     "isActive": true
   },
   {
@@ -2596,7 +2960,9 @@
     "displayOrder": 7,
     "options": [],
     "validation": {},
-    "tables": ["T3-489"],
+    "tables": [
+      "T3-489"
+    ],
     "isActive": true
   },
   {
@@ -2611,7 +2977,9 @@
     "displayOrder": 8,
     "options": [],
     "validation": {},
-    "tables": ["T3-490"],
+    "tables": [
+      "T3-490"
+    ],
     "isActive": true
   },
   {
@@ -2626,7 +2994,9 @@
     "displayOrder": 9,
     "options": [],
     "validation": {},
-    "tables": ["T3-491"],
+    "tables": [
+      "T3-491"
+    ],
     "isActive": true
   },
   {
@@ -2641,7 +3011,9 @@
     "displayOrder": 10,
     "options": [],
     "validation": {},
-    "tables": ["T3-492"],
+    "tables": [
+      "T3-492"
+    ],
     "isActive": true
   },
   {
@@ -2656,7 +3028,9 @@
     "displayOrder": 11,
     "options": [],
     "validation": {},
-    "tables": ["T3-493"],
+    "tables": [
+      "T3-493"
+    ],
     "isActive": true
   },
   {
@@ -2671,7 +3045,9 @@
     "displayOrder": 12,
     "options": [],
     "validation": {},
-    "tables": ["T3-494"],
+    "tables": [
+      "T3-494"
+    ],
     "isActive": true
   },
   {
@@ -2686,22 +3062,26 @@
     "displayOrder": 13,
     "options": [],
     "validation": {},
-    "tables": ["T3-495"],
+    "tables": [
+      "T3-495"
+    ],
     "isActive": true
   },
   {
     "id": "tpms-system",
     "subCategoryId": "tpms",
     "name": "tpmsSystem",
-    "label": "Tyre Pressure Monitoring System (TPMS) / Run-Flat Warning System" ,
+    "label": "Tyre Pressure Monitoring System (TPMS) / Run-Flat Warning System",
     "clauseNumber": "B3.6.2",
     "type": "text",
-    "placeholder": "Enter tyre pressure monitoring system" ,   
+    "placeholder": "Enter tyre pressure monitoring system",
     "isRequired": true,
     "displayOrder": 1,
     "options": [],
     "validation": {},
-    "tables": ["T3-77"],
+    "tables": [
+      "T3-77"
+    ],
     "isActive": true
   },
   {
@@ -2716,7 +3096,9 @@
     "displayOrder": 2,
     "options": [],
     "validation": {},
-    "tables": ["T3-78"],
+    "tables": [
+      "T3-78"
+    ],
     "isActive": true
   },
   {
@@ -2731,7 +3113,9 @@
     "displayOrder": 3,
     "options": [],
     "validation": {},
-    "tables": ["T3-79"],
+    "tables": [
+      "T3-79"
+    ],
     "isActive": true
   },
   {
@@ -2746,7 +3130,9 @@
     "displayOrder": 4,
     "options": [],
     "validation": {},
-    "tables": ["T3-80"],
+    "tables": [
+      "T3-80"
+    ],
     "isActive": true
   },
   {
@@ -2761,7 +3147,9 @@
     "displayOrder": 5,
     "options": [],
     "validation": {},
-    "tables": ["T3-81"],
+    "tables": [
+      "T3-81"
+    ],
     "isActive": true
   },
   {
@@ -2776,7 +3164,9 @@
     "displayOrder": 6,
     "options": [],
     "validation": {},
-    "tables": ["T3-82"],
+    "tables": [
+      "T3-82"
+    ],
     "isActive": true
   },
   {
@@ -2791,7 +3181,9 @@
     "displayOrder": 7,
     "options": [],
     "validation": {},
-    "tables": ["T3-83"],
+    "tables": [
+      "T3-83"
+    ],
     "isActive": true
   },
   {
@@ -2806,7 +3198,9 @@
     "displayOrder": 8,
     "options": [],
     "validation": {},
-    "tables": ["T3-84"],
+    "tables": [
+      "T3-84"
+    ],
     "isActive": true
   },
   {
@@ -2821,7 +3215,9 @@
     "displayOrder": 9,
     "options": [],
     "validation": {},
-    "tables": ["T3-85"],
+    "tables": [
+      "T3-85"
+    ],
     "isActive": true
   },
   {
@@ -2836,7 +3232,9 @@
     "displayOrder": 10,
     "options": [],
     "validation": {},
-    "tables": ["T3-86"],
+    "tables": [
+      "T3-86"
+    ],
     "isActive": true
   },
   {
@@ -2851,8 +3249,9 @@
     "displayOrder": 11,
     "options": [],
     "validation": {},
-    "tables": ["T3-87"],
+    "tables": [
+      "T3-87"
+    ],
     "isActive": true
   }
-
 ]
