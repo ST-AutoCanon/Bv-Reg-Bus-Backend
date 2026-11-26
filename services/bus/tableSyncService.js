@@ -1,262 +1,3 @@
-// import Table1A from "../../mongoSchemas/bus/Table1A.js";
-
-// import T2 from "../../mongoSchemas/bus/T2.js";
-// import T3 from "../../mongoSchemas/bus/T3.js";
-// import T5 from "../../mongoSchemas/bus/T5.js";
-// import T6 from "../../mongoSchemas/bus/T6.js";
-// import T7C from "../../mongoSchemas/bus/T7C.js";
-// import T8 from "../../mongoSchemas/bus/T8.js";
-// import T11 from "../../mongoSchemas/bus/T11.js";
-// import T13 from "../../mongoSchemas/bus/T13.js";
-// import T22 from "../../mongoSchemas/bus/T22.js";
-// import T22P1 from "../../mongoSchemas/bus/T22P1.js";
-// import T22P2 from "../../mongoSchemas/bus/T22P2.js";
-// import T22B from "../../mongoSchemas/bus/T22B.js";
-// import T22C from "../../mongoSchemas/bus/T22C.js";
-// import T22D from "../../mongoSchemas/bus/T22D.js";
-
-// import fields from "../../data/fields.json" with { type: "json" };
-
-// /*
-// |--------------------------------------------------------------------------
-// | TABLE CONFIGURATION
-// |--------------------------------------------------------------------------
-// |
-// | Each table has its own Mongoose model.
-// |
-// | IMPORTANT:
-// | The keys must match the values inside field.tables
-// | in your fields.json file.
-// |
-// */
-
-// const TABLE_CONFIG = {
-//   table1A: Table1A,
-
-//   T2: T2,
-//   T3: T3,
-//   T5: T5,
-//   T6: T6,
-//   T7C: T7C,
-//   T8: T8,
-//   T11: T11,
-//   T13: T13,
-//   T22: T22,
-//   T22P1: T22P1,
-//   T22P2: T22P2,
-//   T22B: T22B,
-//   T22C: T22C,
-//   T22D: T22D,
-// };
-
-// /*
-// |--------------------------------------------------------------------------
-// | HELPERS
-// |--------------------------------------------------------------------------
-// */
-
-// /**
-//  * Check whether a field value is empty.
-//  */
-// const isEmptyValue = (value) => {
-//   return (
-//     value === undefined ||
-//     value === null ||
-//     (typeof value === "string" && value.trim() === "")
-//   );
-// };
-
-// /**
-//  * Get only active fields belonging to a particular table.
-//  */
-// const getTableFields = (tableId) => {
-//   return fields.filter(
-//     (field) =>
-//       field.isActive &&
-//       Array.isArray(field.tables) &&
-//       field.tables.includes(tableId),
-//   );
-// };
-
-// /**
-//  * Build the data object for one table.
-//  */
-// const buildTableData = (values, tableId) => {
-//   const tableData = {};
-
-//   const tableFields = getTableFields(tableId);
-
-//   for (const field of tableFields) {
-//     const subCategoryId = field.subCategoryId;
-//     const fieldName = field.name;
-
-//     if (!tableData[subCategoryId]) {
-//       tableData[subCategoryId] = {};
-//     }
-
-//     const value = values?.[subCategoryId]?.[fieldName];
-
-//     tableData[subCategoryId][fieldName] = value ?? "";
-//   }
-
-//   return tableData;
-// };
-
-// /**
-//  * Calculate completion percentage for a table.
-//  */
-// const calculateTableCompletion = (values, tableId) => {
-//   const tableFields = getTableFields(tableId);
-
-//   if (tableFields.length === 0) {
-//     return 0;
-//   }
-
-//   let filledFields = 0;
-
-//   for (const field of tableFields) {
-//     const value = values?.[field.subCategoryId]?.[field.name];
-
-//     if (!isEmptyValue(value)) {
-//       filledFields++;
-//     }
-//   }
-
-//   return Math.round((filledFields / tableFields.length) * 100);
-// };
-
-// /**
-//  * Convert percentage into table status.
-//  */
-// const getTableStatus = (percentage) => {
-//   if (percentage === 0) {
-//     return "not_started";
-//   }
-
-//   if (percentage === 100) {
-//     return "completed";
-//   }
-
-//   return "in_progress";
-// };
-
-// /*
-// |--------------------------------------------------------------------------
-// | SYNC ONE TABLE
-// |--------------------------------------------------------------------------
-// */
-
-// /**
-//  * Create/update one table document.
-//  */
-// const syncOneTable = async ({ submissionId, userId, values, tableId }) => {
-//   const Model = TABLE_CONFIG[tableId];
-
-//   if (!Model) {
-//     throw new Error(`Unsupported table: ${tableId}`);
-//   }
-
-//   // Build table-specific data.
-//   const data = buildTableData(values, tableId);
-
-//   // Calculate completion percentage.
-//   const completionPercentage = calculateTableCompletion(values, tableId);
-
-//   // Calculate status.
-//   const status = getTableStatus(completionPercentage);
-
-//   // Create or update table document.
-//   const table = await Model.findOneAndUpdate(
-//     {
-//       submissionId,
-//     },
-//     {
-//       $set: {
-//         submissionId,
-//         userId,
-//         data,
-//         completionPercentage,
-//         status,
-//       },
-//     },
-//     {
-//       new: true,
-//       upsert: true,
-//       runValidators: true,
-//       setDefaultsOnInsert: true,
-//     },
-//   );
-
-//   return table;
-// };
-
-// /*
-// |--------------------------------------------------------------------------
-// | SYNC ALL TABLES
-// |--------------------------------------------------------------------------
-// */
-
-// /**
-//  * Sync all tables belonging to a submission.
-//  */
-// export const syncSubmissionTables = async ({
-//   submissionId,
-//   userId,
-//   values,
-// }) => {
-//   const tableEntries = Object.entries(TABLE_CONFIG);
-
-//   /*
-//    * Sync all configured tables.
-//    * Promise.all executes them in parallel.
-//    */
-//   const results = await Promise.all(
-//     tableEntries.map(async ([tableId]) => {
-//       const table = await syncOneTable({
-//         submissionId,
-//         userId,
-//         values,
-//         tableId,
-//       });
-
-//       return [tableId, table];
-//     }),
-//   );
-
-//   /*
-//    * Return all table documents.
-//    */
-//   return Object.fromEntries(results);
-// };
-
-// /*
-// |--------------------------------------------------------------------------
-// | SYNC ONLY ONE TABLE
-// |--------------------------------------------------------------------------
-// */
-
-// /**
-//  * Sync a single table.
-//  */
-// export const syncSingleTable = async ({
-//   submissionId,
-//   userId,
-//   values,
-//   tableId,
-// }) => {
-//   return syncOneTable({
-//     submissionId,
-//     userId,
-//     values,
-//     tableId,
-//   });
-// };
-
-// export default syncSubmissionTables;
-
-
-
-
 import Table1A from "../../mongoSchemas/bus/Table1A.js";
 
 import T2 from "../../mongoSchemas/bus/T2.js";
@@ -577,6 +318,52 @@ export const syncSingleTable = async ({
     values,
     tableId,
   });
+};
+
+
+// Get saved completion percentages for all BUS tables
+
+
+export const getSubmissionTableProgress = async (submissionId) => {
+  const tableProgress = {};
+
+
+  await Promise.all(
+    Object.entries(TABLE_CONFIG).map(async ([tableKey, Model]) => {
+      try {
+        const table = await Model.findOne({ submissionId })
+          .select("submissionId completionPercentage status")
+          .lean();
+
+        console.log(`[Table Progress Debug] ${tableKey}:`, {
+          found: !!table,
+          submissionId: table?.submissionId ? String(table.submissionId) : null,
+          completionPercentage: table?.completionPercentage,
+          status: table?.status,
+          collection: Model.collection.name,
+        });
+
+        tableProgress[tableKey] = {
+          _id: table?._id ?? null,
+          completionPercentage: table?.completionPercentage ?? 0,
+          status: table?.status ?? "not_started",
+        };
+      } catch (error) {
+        console.error(
+          `[Table Progress Debug] Error fetching ${tableKey}:`,
+          error.message,
+        );
+
+        tableProgress[tableKey] = {
+          _id: null,
+          completionPercentage: 0,
+          status: "not_started",
+        };
+      }
+    }),
+  );
+
+  return tableProgress;
 };
 
 export default syncSubmissionTables;

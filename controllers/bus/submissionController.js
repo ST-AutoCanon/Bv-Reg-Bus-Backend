@@ -1,12 +1,14 @@
-import mongoose from "mongoose";
 import fields from "../../data/config/fields.json" with {
   type: "json",
 };
 
 import Submission from "../../mongoSchemas/bus/Submission.js";
 import { validateValue } from "../../services/bus/validationService.js";
-import { syncSubmissionTables } from "../../services/bus/tableSyncService.js";
-
+// import { syncSubmissionTables } from "../../services/bus/tableSyncService.js";
+import {
+  syncSubmissionTables,
+  getSubmissionTableProgress,
+} from "../../services/bus/tableSyncService.js";
 /*
 |--------------------------------------------------------------------------
 | AUTHENTICATED USER HELPER
@@ -33,34 +35,6 @@ const getAuthenticatedUserId = (req) => {
 
   return normalizedId || null;
 };
-/*
-|--------------------------------------------------------------------------
-| GENERATE USER-SPECIFIC REQUEST NUMBER
-|--------------------------------------------------------------------------
-*/
-
-const generateBusRequestNumber = async (userId) => {
-  const year = new Date().getFullYear();
-  const counterId = `${userId}-BUS-${year}`;
-
-  const result = await mongoose.connection
-    .collection("counters")
-    .findOneAndUpdate(
-      { _id: counterId },
-      { $inc: { sequence: 1 } },
-      {
-        upsert: true,
-        returnDocument: "after",
-      }
-    );
-
-  // Supports both MongoDB driver result formats.
-  const counter = result?.value ?? result;
-
-  const sequence = String(counter.sequence).padStart(3, "0");
-
-  return `BUS-${year}-${sequence}`;
-};
 
 /*
 |--------------------------------------------------------------------------
@@ -75,15 +49,6 @@ const logDatabaseInfo = () => {
     "[Submission Debug] userId schema type:",
     Submission.schema.path("userId")?.instance ?? "undefined"
   );
-  console.log(
-  "[Submission Debug] Root requestNumber schema:",
-  !!Submission.schema.path("requestNumber")
-);
-
-console.log(
-  "[Submission Debug] Nested requestNumber schema:",
-  !!Submission.schema.path("requestInfo.requestNumber")
-);
 };
 
 const logError = (label, error) => {
@@ -284,34 +249,6 @@ const hasAllRequiredFieldsInForm = (values) => {
 |--------------------------------------------------------------------------
 */
 
-// const buildTableSummary = (tableResults = {}) => {
-//   const buildOne = (table) => ({
-//     completionPercentage: table?.completionPercentage ?? 0,
-//     status: table?.status ?? "not_started",
-//   });
-
-//   return {
-//     table1A: buildOne(tableResults.table1A),
-//     table11: buildOne(tableResults.table11),
-//     table3A: buildOne(tableResults.table3A),
-//   };
-// };
-
-// const buildTablesResponse = (tableResults = {}) => {
-//   const buildOne = (table) => ({
-//     id: table?._id ?? table?.id ?? null,
-//     completionPercentage: table?.completionPercentage ?? 0,
-//     status: table?.status ?? "not_started",
-//   });
-
-//   return {
-//     table1A: buildOne(tableResults.table1A),
-//     table11: buildOne(tableResults.table11),
-//     table3A: buildOne(tableResults.table3A),
-//   };
-// };
-
-
 
 const buildTableSummary = (tableResults = {}) => {
   return Object.fromEntries(
@@ -357,17 +294,31 @@ export const createSubmission = async (req, res) => {
 
     logDatabaseInfo();
 
-    const requestInfo = req.body?.requestInfo;
+    let requestInfo = req.body?.requestInfo;
 
-    if (!isPlainObject(requestInfo)) {
-      console.warn("[Submission Debug] requestInfo missing or invalid");
+// FormData sends JSON as a string, so parse it first.
+if (typeof requestInfo === "string") {
+  try {
+    requestInfo = JSON.parse(requestInfo);
+  } catch (error) {
+    console.error("Invalid requestInfo JSON:", error);
 
-      return res.status(400).json({
-        success: false,
-        message: "Request information is required",
-      });
-    }
+    return res.status(400).json({
+      success: false,
+      message: "Invalid request information format",
+    });
+  }
+}
 
+if (!isPlainObject(requestInfo)) {
+  console.warn("[Submission Debug] requestInfo missing or invalid");
+  console.log("Request body:", req.body);
+
+  return res.status(400).json({
+    success: false,
+    message: "Request information is required",
+  });
+}
     const requestInfoErrors = validateRequestInfo(requestInfo);
 
     if (Object.keys(requestInfoErrors).length > 0) {
@@ -405,37 +356,30 @@ export const createSubmission = async (req, res) => {
     }
 
     const completed = hasAllRequiredFieldsInForm(values);
-    const requestNumber = await generateBusRequestNumber(userId);
-    console.log("========== REQUEST NUMBER DEBUG ==========");
-console.log("Generated request number:", requestNumber);
-console.log("Schema has requestNumber:", !!Submission.schema.path("requestNumber"));
 
     console.log("[Submission Debug] Creating document");
     console.log("[Submission Debug] Status:", completed ? "completed" : "draft");
 
     createdSubmission = await Submission.create({
-      userId,
-      requestNumber,
-      requestInfo: {
-        vehicleType: requestInfo.vehicleType,
-        fuelType: requestInfo.fuelType,
-        certificationType: requestInfo.certificationType,
-        unloadedWeightWithoutBattery: requestInfo.unloadedWeightWithoutBattery,
-        category: requestInfo.category,
-        preferredTestingAgency: requestInfo.preferredTestingAgency,
-      },
-      values,
-      status: completed ? "completed" : "draft",
-    });
-    console.log(
-  "Saved request number:",
-  createdSubmission.requestNumber
-);
+  userId,
 
-console.log(
-  "Saved document:",
-  createdSubmission.toObject()
-);
+  requestInfo: {
+    vehicleType: requestInfo.vehicleType,
+    fuelType: requestInfo.fuelType,
+    certificationType: requestInfo.certificationType,
+    unloadedWeightWithoutBattery: requestInfo.unloadedWeightWithoutBattery,
+    category: requestInfo.category,
+    preferredTestingAgency: requestInfo.preferredTestingAgency,
+  },
+
+  // Save uploaded vehicle image
+  vehicleImage: req.file
+  ? `/uploads/vehicles/${req.file.filename}`
+  : "",
+
+  values,
+  status: completed ? "completed" : "draft",
+});
 
     console.log("[Submission Debug] Document created:", String(createdSubmission._id));
     console.log("[Submission Debug] Stored userId:", String(createdSubmission.userId));
@@ -488,6 +432,86 @@ console.log(
 | GET /api/bus/submissions
 */
 
+// export const getMySubmissions = async (req, res) => {
+//   try {
+//     console.log("\n========== GET MY SUBMISSIONS ==========");
+
+//     const userId = requireAuthenticatedUser(req, res);
+//     if (!userId) return;
+
+//     logDatabaseInfo();
+
+//     console.log("[Submission Debug] Counting all documents...");
+
+//     const totalDocuments = await Submission.countDocuments({});
+
+//     console.log("[Submission Debug] Total documents:", totalDocuments);
+
+//     console.log("[Submission Debug] Counting documents for user...");
+
+//     const matchingDocuments = await Submission.countDocuments({
+//       userId,
+//     });
+
+//     console.log(
+//       "[Submission Debug] Documents matching userId:",
+//       matchingDocuments
+//     );
+
+//     /*
+//      * If documents exist but none match, inspect a few stored
+//      * userId values without logging other users' identifiers.
+//      */
+//     if (totalDocuments > 0 && matchingDocuments === 0) {
+//       const samples = await Submission.find({})
+//         .select("userId")
+//         .limit(5)
+//         .lean();
+
+//       console.warn(
+//         "[Submission Debug] Sample stored userId types:",
+//         samples.map((doc) => ({
+//           type: typeof doc.userId,
+//           isNull: doc.userId == null,
+//           isObjectId:
+//             doc.userId?._bsontype === "ObjectId",
+//         }))
+//       );
+
+//       console.warn(
+//         "[Submission Debug] No submissions matched the authenticated user. Check the stored field name, userId value, schema type, and database/collection."
+//       );
+//     }
+
+//     const submissions = await Submission.find({ userId })
+//       .sort({ createdAt: -1 })
+//       .lean();
+
+//     console.log(
+//       "[Submission Debug] Submissions returned:",
+//       submissions.length
+//     );
+
+//     return res.status(200).json({
+//       success: true,
+//       count: submissions.length,
+//       data: submissions,
+//     });
+//   } catch (error) {
+//     logError("getMySubmissions failed", error);
+
+//     return res.status(500).json({
+//       success: false,
+//       message: "Failed to fetch submissions",
+//       ...(process.env.NODE_ENV !== "production" && {
+//         debug: error.message,
+//       }),
+//     });
+//   }
+// };
+
+
+
 export const getMySubmissions = async (req, res) => {
   try {
     console.log("\n========== GET MY SUBMISSIONS ==========");
@@ -511,7 +535,7 @@ export const getMySubmissions = async (req, res) => {
 
     console.log(
       "[Submission Debug] Documents matching userId:",
-      matchingDocuments
+      matchingDocuments,
     );
 
     /*
@@ -529,13 +553,12 @@ export const getMySubmissions = async (req, res) => {
         samples.map((doc) => ({
           type: typeof doc.userId,
           isNull: doc.userId == null,
-          isObjectId:
-            doc.userId?._bsontype === "ObjectId",
-        }))
+          isObjectId: doc.userId?._bsontype === "ObjectId",
+        })),
       );
 
       console.warn(
-        "[Submission Debug] No submissions matched the authenticated user. Check the stored field name, userId value, schema type, and database/collection."
+        "[Submission Debug] No submissions matched the authenticated user. Check the stored field name, userId value, schema type, and database/collection.",
       );
     }
 
@@ -543,15 +566,28 @@ export const getMySubmissions = async (req, res) => {
       .sort({ createdAt: -1 })
       .lean();
 
-    console.log(
-      "[Submission Debug] Submissions returned:",
-      submissions.length
+    console.log("[Submission Debug] Submissions returned:", submissions.length);
+
+    // Fetch real progress from the individual BUS table collections
+    const submissionsWithTables = await Promise.all(
+      submissions.map(async (submission) => {
+        const tableProgress = await getSubmissionTableProgress(submission._id);
+
+        const tables = buildTablesResponse(tableProgress);
+
+  
+
+        return {
+          ...submission,
+          tables,
+        };
+      }),
     );
 
     return res.status(200).json({
       success: true,
-      count: submissions.length,
-      data: submissions,
+      count: submissionsWithTables.length,
+      data: submissionsWithTables,
     });
   } catch (error) {
     logError("getMySubmissions failed", error);
@@ -565,7 +601,6 @@ export const getMySubmissions = async (req, res) => {
     });
   }
 };
-
 /*
 |--------------------------------------------------------------------------
 | GET ONE SUBMISSION
@@ -573,17 +608,64 @@ export const getMySubmissions = async (req, res) => {
 | GET /api/bus/submissions/:id
 */
 
+// export const getSubmissionById = async (req, res) => {
+//   try {
+//     console.log("\n========== GET SUBMISSION BY ID ==========");
+
+//     const userId = requireAuthenticatedUser(req, res);
+//     if (!userId) return;
+
+//     const { id } = req.params;
+
+//     console.log("[Submission Debug] Requested submission ID:", id);
+
+//     const submission = await Submission.findOne({
+//       _id: id,
+//       userId,
+//     }).lean();
+
+//     if (!submission) {
+//       console.warn("[Submission Debug] Submission not found for this user");
+
+//       return res.status(404).json({
+//         success: false,
+//         message: "Submission not found",
+//       });
+//     }
+
+//     return res.status(200).json({
+//       success: true,
+//       data: submission,
+//     });
+//   } catch (error) {
+//     logError("getSubmissionById failed", error);
+
+//     if (error?.name === "CastError") {
+//       return res.status(400).json({
+//         success: false,
+//         message: "Invalid submission ID",
+//       });
+//     }
+
+//     return res.status(500).json({
+//       success: false,
+//       message: "Failed to fetch submission",
+//       ...(process.env.NODE_ENV !== "production" && {
+//         debug: error.message,
+//       }),
+//     });
+//   }
+// };
+
 export const getSubmissionById = async (req, res) => {
   try {
-    console.log("\n========== GET SUBMISSION BY ID ==========");
 
     const userId = requireAuthenticatedUser(req, res);
     if (!userId) return;
 
     const { id } = req.params;
 
-    console.log("[Submission Debug] Requested submission ID:", id);
-
+   
     const submission = await Submission.findOne({
       _id: id,
       userId,
@@ -598,9 +680,18 @@ export const getSubmissionById = async (req, res) => {
       });
     }
 
+    // Fetch actual table progress from individual table collections
+    const tableProgress = await getSubmissionTableProgress(submission._id);
+
+    const tables = buildTablesResponse(tableProgress);
+
+
     return res.status(200).json({
       success: true,
-      data: submission,
+      data: {
+        ...submission,
+        tables,
+      },
     });
   } catch (error) {
     logError("getSubmissionById failed", error);
@@ -629,155 +720,8 @@ export const getSubmissionById = async (req, res) => {
 | PATCH /api/bus/submissions/:id
 */
 
-// export const updateSubmission = async (req, res) => {
-//   try {
-//     console.log("\n========== UPDATE SUBMISSION ==========");
-
-//     const userId = requireAuthenticatedUser(req, res);
-//     if (!userId) return;
-
-//     const { id } = req.params;
-
-//     console.log("[Submission Debug] Requested submission ID:", id);
-
-//     const submission = await Submission.findOne({
-//       _id: id,
-//       userId,
-//     });
-
-//     if (!submission) {
-//       console.warn("[Submission Debug] Submission not found for this user");
-
-//       return res.status(404).json({
-//         success: false,
-//         message: "Submission not found",
-//       });
-//     }
-
-//     const incomingRequestInfo = req.body?.requestInfo;
-//     const incomingValues = req.body?.values;
-
-//     if (incomingRequestInfo !== undefined) {
-//       if (!isPlainObject(incomingRequestInfo)) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "Request information must be an object",
-//         });
-//       }
-
-//       const requestInfoErrors =
-//         validateRequestInfo(incomingRequestInfo);
-
-//       if (Object.keys(requestInfoErrors).length > 0) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "Please complete all request information",
-//           errors: requestInfoErrors,
-//         });
-//       }
-
-//       submission.requestInfo = {
-//         vehicleType: incomingRequestInfo.vehicleType,
-//         fuelType: incomingRequestInfo.fuelType,
-//         certificationType: incomingRequestInfo.certificationType,
-//         unloadedWeightWithoutBattery:
-//           incomingRequestInfo.unloadedWeightWithoutBattery,
-//         category: incomingRequestInfo.category,
-//         preferredTestingAgency:
-//           incomingRequestInfo.preferredTestingAgency,
-//       };
-//     }
-
-//     if (incomingValues !== undefined) {
-//       if (!isPlainObject(incomingValues)) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "Values must be an object",
-//         });
-//       }
-
-//       const completeExistingValues = buildEmptyForm();
-
-//       mergeFormValues(
-//         completeExistingValues,
-//         submission.values || {}
-//       );
-
-//       mergeFormValues(
-//         completeExistingValues,
-//         incomingValues
-//       );
-
-//       const errors = validateCompleteForm(completeExistingValues);
-
-//       if (Object.keys(errors).length > 0) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "Validation failed",
-//           errors,
-//         });
-//       }
-
-//       submission.values = completeExistingValues;
-//     }
-
-//     const completed = hasAllRequiredFieldsInForm(
-//       submission.values || {}
-//     );
-
-//     submission.status = completed ? "completed" : "draft";
-
-//     await submission.save();
-
-//     console.log(
-//       "[Submission Debug] Main submission saved:",
-//       String(submission._id)
-//     );
-
-//     const tableResults = await syncSubmissionTables({
-//       submissionId: submission._id,
-//       userId,
-//       values: submission.values,
-//     });
-
-//     console.log("[Submission Debug] Table synchronization completed");
-
-//     if (submission.tables !== undefined) {
-//       submission.tables = buildTableSummary(tableResults);
-//       await submission.save();
-//     }
-
-//     return res.status(200).json({
-//       success: true,
-//       message: completed
-//         ? "Request completed successfully"
-//         : "Request saved as draft",
-//       data: submission,
-//       tables: buildTablesResponse(tableResults),
-//     });
-//   } catch (error) {
-//     logError("updateSubmission failed", error);
-
-//     if (error?.name === "CastError") {
-//       return res.status(400).json({
-//         success: false,
-//         message: "Invalid submission ID",
-//       });
-//     }
-
-//     return res.status(500).json({
-//       success: false,
-//       message: "Failed to update submission",
-//       ...(process.env.NODE_ENV !== "production" && {
-//         debug: error.message,
-//       }),
-//     });
-//   }
-// };
 
 
-
-// Helper: Return only fields whose values changed
 const getChangedFields = (incoming, existing) => {
   const changed = {};
 

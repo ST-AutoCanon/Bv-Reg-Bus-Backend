@@ -16,4 +16,12 @@ router
     .route("/processUserRegistration/:userRegistrationId/:status")
     .get(adminAuthenticateTokenMiddleWare, userRegistrationController.processUserRegistration)
 
+router
+    .route("/getRegisteredUserDetails")
+    .get(
+        adminAuthenticateTokenMiddleWare,
+        userRegistrationController.getRegisteredUserDetails
+    );
+
+
 module.exports = router
