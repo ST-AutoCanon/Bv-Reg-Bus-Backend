@@ -1,6 +1,23 @@
 
 import mongoose from "mongoose";
 
+const counterSchema = new mongoose.Schema(
+  {
+    _id: String,
+    seq: {
+      type: Number,
+      default: 0,
+    },
+  },
+  {
+    versionKey: false,
+  }
+);
+
+const Counter =
+  mongoose.models.SubmissionCounter ||
+  mongoose.model("SubmissionCounter", counterSchema);
+
 const submissionSchema = new mongoose.Schema(
   {
     userId: {
@@ -10,48 +27,45 @@ const submissionSchema = new mongoose.Schema(
       index: true,
     },
 
-    // Permanent request number
     requestNumber: {
       type: String,
       trim: true,
       immutable: true,
     },
 
-    // Initial request information
     requestInfo: {
       vehicleType: {
         type: String,
         required: true,
       },
-
       fuelType: {
         type: String,
         required: true,
       },
-
       certificationType: {
         type: String,
         required: true,
       },
-
       unloadedWeightWithoutBattery: {
         type: String,
         required: true,
       },
-
       category: {
         type: String,
         required: true,
       },
-
       preferredTestingAgency: {
         type: String,
         required: true,
       },
-
     },
 
-    // Entire vehicle form
+    // Uploaded vehicle image path
+    vehicleImage: {
+      type: String,
+      default: "",
+    },
+
     values: {
       type: mongoose.Schema.Types.Mixed,
       default: {},
@@ -69,6 +83,58 @@ const submissionSchema = new mongoose.Schema(
   }
 );
 
+// Generate a request number if one is not already assigned
+
+
+  
+submissionSchema.pre("save", async function () {
+  if (!this.isNew || this.requestNumber) return;
+
+  const year = new Date().getFullYear();
+  const counterId = `BUS-${year}`;
+
+  // Find the highest existing request number for this year
+  const latestSubmission = await this.constructor
+    .findOne({
+      requestNumber: {
+        $regex: `^BUS-${year}-\\d+$`,
+      },
+    })
+    .sort({ requestNumber: -1 })
+    .select("requestNumber")
+    .lean();
+
+  let latestNumber = 0;
+
+  if (latestSubmission?.requestNumber) {
+    const match = latestSubmission.requestNumber.match(/(\d+)$/);
+
+    if (match) {
+      latestNumber = Number(match[1]);
+    }
+  }
+
+  // Bring the counter up to the highest existing number
+  await Counter.updateOne(
+    { _id: counterId },
+    { $max: { seq: latestNumber } },
+    { upsert: true }
+  );
+
+  // Atomically generate the next number
+  const counter = await Counter.findOneAndUpdate(
+    { _id: counterId },
+    { $inc: { seq: 1 } },
+    {
+      new: true,
+      upsert: true,
+    }
+  );
+
+  this.requestNumber =
+    `BUS-${year}-${String(counter.seq).padStart(3, "0")}`;
+});
+
 // Unique request number for each user
 submissionSchema.index(
   { userId: 1, requestNumber: 1 },
@@ -80,9 +146,6 @@ submissionSchema.index(
   }
 );
 
-const Submission = mongoose.model(
-  "Submission",
-  submissionSchema
-);
+const Submission = mongoose.model("Submission", submissionSchema);
 
 export default Submission;

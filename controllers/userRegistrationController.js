@@ -118,3 +118,48 @@ exports.processUserRegistration = async (req, res, next) => {
     })
   }
 }
+
+
+exports.getRegisteredUserDetails = async (req, res) => {
+  try {
+    // Assumption: authentication middleware provides
+    // the UserProfile MongoDB document ID as req.user.id.
+    const userId = req.user.id;
+
+    const user = await UserProfile.findById(userId).select(
+      "firstName lastName emailId profileAddress"
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        status: "failure",
+        message: "User details not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: "success",
+      body: {
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        email: user.emailId || "",
+        contact: user.profileAddress?.contact || "",
+        alternateContact:
+          user.profileAddress?.alternateContact || "",
+        address1: user.profileAddress?.address1 || "",
+        address2: user.profileAddress?.address2 || "",
+        country: user.profileAddress?.country || "",
+        state: user.profileAddress?.state || "",
+        city: user.profileAddress?.city || "",
+        zipCode: user.profileAddress?.zipCode || "",
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching user details:", error);
+
+    return res.status(500).json({
+      status: "failure",
+      message: "Unable to fetch user details",
+    });
+  }
+};
