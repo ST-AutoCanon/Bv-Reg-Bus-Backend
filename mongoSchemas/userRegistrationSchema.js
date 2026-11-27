@@ -35,6 +35,10 @@ const userRegistrationSchema = mongoose.Schema(
       type: String,
       required: [true, "User must have a VehicleType"],
     },
+     vehicleImage: {
+     type: String,
+     default: "",
+     },
     businessDescription: {
       type: String,
     },
