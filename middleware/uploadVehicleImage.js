@@ -1,12 +1,21 @@
+
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-const uploadDirectory = path.join(process.cwd(), "uploads", "vehicles");
+// Always save inside the backend project's uploads/vehicles folder
+const uploadDirectory = path.join(
+  __dirname,
+  "..",
+  "uploads",
+  "vehicles"
+);
 
 if (!fs.existsSync(uploadDirectory)) {
   fs.mkdirSync(uploadDirectory, { recursive: true });
 }
+
+console.log("[Vehicle Upload] Directory:", uploadDirectory);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -15,6 +24,7 @@ const storage = multer.diskStorage({
 
   filename: (req, file, cb) => {
     const extension = path.extname(file.originalname);
+
     const filename = `${Date.now()}-${Math.round(
       Math.random() * 1e9
     )}${extension}`;

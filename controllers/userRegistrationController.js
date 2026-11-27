@@ -1,9 +1,22 @@
 const UserRegistration = require("../mongoSchemas/userRegistrationSchema")
 const { createUserProfile } = require("../services/userProfileService")
 
+const UserProfile = require("../mongoSchemas/userProfileSchema");
+
 exports.newUserRegistration = async (req, res, next) => {
   try {
     const request = req.body
+    // Parse profileAddress when received through FormData
+if (typeof request.profileAddress === "string") {
+  try {
+    request.profileAddress = JSON.parse(request.profileAddress);
+  } catch (error) {
+    return res.status(400).json({
+      status: "failure",
+      body: "Invalid profileAddress format",
+    });
+  }
+}
     if (!request) {
       throw new Error(`request body not provided`)
     }
@@ -16,6 +29,10 @@ exports.newUserRegistration = async (req, res, next) => {
       registrationDate: request.registrationDate,
       registrationNumber: request.registrationNumber,
       vehicleType: request.vehicleType,
+       // Save uploaded vehicle image path
+  vehicleImage: req.file
+    ? `/uploads/vehicles/${req.file.filename}`
+    : "",
       businessDescription: request.businessDescription,
       profileAddress: {
         address1: request.profileAddress.address1,
@@ -120,20 +137,26 @@ exports.processUserRegistration = async (req, res, next) => {
 }
 
 
+
 exports.getRegisteredUserDetails = async (req, res) => {
   try {
-    // Assumption: authentication middleware provides
-    // the UserProfile MongoDB document ID as req.user.id.
-    const userId = req.user.id;
+    const userId = req.user?._id;
 
-    const user = await UserProfile.findById(userId).select(
-      "firstName lastName emailId profileAddress"
-    );
+    console.log("Logged-in user ID:", userId);
+
+    if (!userId) {
+      return res.status(401).json({
+        status: "failure",
+        message: "User ID not found in token",
+      });
+    }
+
+    const user = await UserProfile.findById(userId).select("firstName lastName emailId profileAddress vehicleImage");
 
     if (!user) {
       return res.status(404).json({
         status: "failure",
-        message: "User details not found",
+        message: "User profile not found",
       });
     }
 
@@ -143,9 +166,10 @@ exports.getRegisteredUserDetails = async (req, res) => {
         firstName: user.firstName || "",
         lastName: user.lastName || "",
         email: user.emailId || "",
+          // Vehicle image
+    vehicleImage: user.vehicleImage || "",
         contact: user.profileAddress?.contact || "",
-        alternateContact:
-          user.profileAddress?.alternateContact || "",
+        alternateContact: user.profileAddress?.alternateContact || "",
         address1: user.profileAddress?.address1 || "",
         address2: user.profileAddress?.address2 || "",
         country: user.profileAddress?.country || "",
@@ -154,6 +178,7 @@ exports.getRegisteredUserDetails = async (req, res) => {
         zipCode: user.profileAddress?.zipCode || "",
       },
     });
+
   } catch (error) {
     console.error("Error fetching user details:", error);
 

@@ -87,15 +87,19 @@ const submissionSchema = new mongoose.Schema(
 
 
   
+
 submissionSchema.pre("save", async function () {
   if (!this.isNew || this.requestNumber) return;
 
   const year = new Date().getFullYear();
-  const counterId = `BUS-${year}`;
 
-  // Find the highest existing request number for this year
+  // Separate counter for each user and year
+  const counterId = `BUS-${year}-${this.userId}`;
+
+  // Find the highest existing request number for this user
   const latestSubmission = await this.constructor
     .findOne({
+      userId: this.userId,
       requestNumber: {
         $regex: `^BUS-${year}-\\d+$`,
       },
@@ -114,14 +118,14 @@ submissionSchema.pre("save", async function () {
     }
   }
 
-  // Bring the counter up to the highest existing number
+  // Bring this user's counter up to their highest existing number
   await Counter.updateOne(
     { _id: counterId },
     { $max: { seq: latestNumber } },
     { upsert: true }
   );
 
-  // Atomically generate the next number
+  // Generate the next number for this user
   const counter = await Counter.findOneAndUpdate(
     { _id: counterId },
     { $inc: { seq: 1 } },
@@ -134,6 +138,7 @@ submissionSchema.pre("save", async function () {
   this.requestNumber =
     `BUS-${year}-${String(counter.seq).padStart(3, "0")}`;
 });
+
 
 // Unique request number for each user
 submissionSchema.index(

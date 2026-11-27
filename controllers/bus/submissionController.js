@@ -9,6 +9,7 @@ import {
   syncSubmissionTables,
   getSubmissionTableProgress,
 } from "../../services/bus/tableSyncService.js";
+import UserProfile from "../../mongoSchemas/userProfileSchema.js";
 /*
 |--------------------------------------------------------------------------
 | AUTHENTICATED USER HELPER
@@ -290,9 +291,19 @@ export const createSubmission = async (req, res) => {
     console.log("\n========== CREATE SUBMISSION ==========");
 
     const userId = requireAuthenticatedUser(req, res);
-    if (!userId) return;
+if (!userId) return;
 
-    logDatabaseInfo();
+logDatabaseInfo();
+
+// Get the vehicle image uploaded during business registration
+const userProfile = await UserProfile.findById(userId)
+  .select("vehicleImage")
+  .lean();
+
+console.log(
+  "[Submission Debug] Registered vehicle image:",
+  userProfile?.vehicleImage || "No image uploaded"
+);
 
     let requestInfo = req.body?.requestInfo;
 
@@ -373,9 +384,8 @@ if (!isPlainObject(requestInfo)) {
   },
 
   // Save uploaded vehicle image
-  vehicleImage: req.file
-  ? `/uploads/vehicles/${req.file.filename}`
-  : "",
+  // Use the image uploaded during business registration
+vehicleImage: userProfile?.vehicleImage || "",
 
   values,
   status: completed ? "completed" : "draft",
